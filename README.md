@@ -1,6 +1,6 @@
 # Deep-Dive-Video-Note-Taker
-Author(s): Rajiv G. Ramteke
-Affiliation: suryodaya College of Engineering And technology, Nagpur
+Author(s): Rajiv G. Ramteke  
+Affiliation: Suryodaya College of Engineering and Technology, Nagpur  
 Date: March 2026
 ## Abstract
 This project presents an AI-powered system that converts long-form videos such as YouTube lectures, meetings, and tutorials into structured and meaningful notes. The system leverages Speech-to-Text models to transcribe audio and Large Language Models (LLMs) to generate summaries, key timestamps, and actionable insights. Additionally, Retrieval-Augmented Generation (RAG) is used to enhance contextual understanding and improve output quality. The solution aims to save time, improve learning efficiency, and help users quickly grasp important information from lengthy video content. The final output includes structured notes, highlighted timestamps, and action items for better productivity.
