@@ -1,0 +1,962 @@
+{
+  "text": "Our heart is a muscular organ which is protected by the rib cage. The heart is divided into four chambers. The two upper chambers of heart are called right a trim and left a trim. And the two lower chambers of heart are called right ventricle and left ventricle. In-period venaciva and superior venaciva carry the oxygenated blood to the right aitrium of the heart. Blood flows from the right aitrium into the right ventricle through the open tricuspid wall. When the ventricles are full the tricuspid wall shuts. Blood leads the right ventricle through the pulmonary wall into the pulmonary aitry for oxygenation. The pulmonary veins carry oxygenated blood to the left aitrium. Blood flows from the left aitrium into the left ventricle through the open metal wall. When the ventricles are full the metal wall shuts. Blood leaves the left ventricle through the aitric wall into the aitre and to the body. And this is how the heart functions continuously.",
+  "segments": [
+    {
+      "id": 0,
+      "start": 3.4799999999999995,
+      "end": 10.6,
+      "start_ts": "00:00:03",
+      "end_ts": "00:00:10",
+      "text": "Our heart is a muscular organ which is protected by the rib cage.",
+      "words": [
+        {
+          "word": "Our",
+          "start": 3.4799999999999995,
+          "end": 4.44
+        },
+        {
+          "word": "heart",
+          "start": 4.44,
+          "end": 4.8
+        },
+        {
+          "word": "is",
+          "start": 4.8,
+          "end": 5.2
+        },
+        {
+          "word": "a",
+          "start": 5.2,
+          "end": 5.44
+        },
+        {
+          "word": "muscular",
+          "start": 5.44,
+          "end": 5.94
+        },
+        {
+          "word": "organ",
+          "start": 5.94,
+          "end": 6.74
+        },
+        {
+          "word": "which",
+          "start": 6.74,
+          "end": 7.26
+        },
+        {
+          "word": "is",
+          "start": 7.26,
+          "end": 7.52
+        },
+        {
+          "word": "protected",
+          "start": 7.52,
+          "end": 7.98
+        },
+        {
+          "word": "by",
+          "start": 7.98,
+          "end": 8.36
+        },
+        {
+          "word": "the",
+          "start": 8.36,
+          "end": 8.56
+        },
+        {
+          "word": "rib",
+          "start": 8.56,
+          "end": 8.78
+        },
+        {
+          "word": "cage.",
+          "start": 8.78,
+          "end": 10.6
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "start": 16.2,
+      "end": 19.68,
+      "start_ts": "00:00:16",
+      "end_ts": "00:00:19",
+      "text": "The heart is divided into four chambers.",
+      "words": [
+        {
+          "word": "The",
+          "start": 15.919999999999998,
+          "end": 16.4
+        },
+        {
+          "word": "heart",
+          "start": 16.4,
+          "end": 16.8
+        },
+        {
+          "word": "is",
+          "start": 16.8,
+          "end": 17.08
+        },
+        {
+          "word": "divided",
+          "start": 17.08,
+          "end": 17.66
+        },
+        {
+          "word": "into",
+          "start": 17.66,
+          "end": 18.22
+        },
+        {
+          "word": "four",
+          "start": 18.22,
+          "end": 18.6
+        },
+        {
+          "word": "chambers.",
+          "start": 18.6,
+          "end": 19.68
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 25.040000000000003,
+      "end": 34.16,
+      "start_ts": "00:00:25",
+      "end_ts": "00:00:34",
+      "text": "The two upper chambers of heart are called right a trim and left a trim.",
+      "words": [
+        {
+          "word": "The",
+          "start": 25.040000000000003,
+          "end": 25.92
+        },
+        {
+          "word": "two",
+          "start": 25.92,
+          "end": 26.36
+        },
+        {
+          "word": "upper",
+          "start": 26.36,
+          "end": 26.74
+        },
+        {
+          "word": "chambers",
+          "start": 26.74,
+          "end": 27.18
+        },
+        {
+          "word": "of",
+          "start": 27.18,
+          "end": 27.72
+        },
+        {
+          "word": "heart",
+          "start": 27.72,
+          "end": 28.02
+        },
+        {
+          "word": "are",
+          "start": 28.02,
+          "end": 28.5
+        },
+        {
+          "word": "called",
+          "start": 28.5,
+          "end": 29.18
+        },
+        {
+          "word": "right",
+          "start": 29.18,
+          "end": 29.62
+        },
+        {
+          "word": "a",
+          "start": 29.62,
+          "end": 30.02
+        },
+        {
+          "word": "trim",
+          "start": 30.02,
+          "end": 30.32
+        },
+        {
+          "word": "and",
+          "start": 30.32,
+          "end": 30.84
+        },
+        {
+          "word": "left",
+          "start": 30.84,
+          "end": 31.2
+        },
+        {
+          "word": "a",
+          "start": 31.2,
+          "end": 31.58
+        },
+        {
+          "word": "trim.",
+          "start": 31.58,
+          "end": 34.16
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 36.92,
+      "end": 45.98,
+      "start_ts": "00:00:36",
+      "end_ts": "00:00:45",
+      "text": "And the two lower chambers of heart are called right ventricle and left ventricle.",
+      "words": [
+        {
+          "word": "And",
+          "start": 36.92,
+          "end": 38.0
+        },
+        {
+          "word": "the",
+          "start": 38.0,
+          "end": 38.24
+        },
+        {
+          "word": "two",
+          "start": 38.24,
+          "end": 38.48
+        },
+        {
+          "word": "lower",
+          "start": 38.48,
+          "end": 38.88
+        },
+        {
+          "word": "chambers",
+          "start": 38.88,
+          "end": 39.32
+        },
+        {
+          "word": "of",
+          "start": 39.32,
+          "end": 39.86
+        },
+        {
+          "word": "heart",
+          "start": 39.86,
+          "end": 40.16
+        },
+        {
+          "word": "are",
+          "start": 40.16,
+          "end": 40.6
+        },
+        {
+          "word": "called",
+          "start": 40.6,
+          "end": 41.16
+        },
+        {
+          "word": "right",
+          "start": 41.16,
+          "end": 41.74
+        },
+        {
+          "word": "ventricle",
+          "start": 41.74,
+          "end": 42.5
+        },
+        {
+          "word": "and",
+          "start": 42.5,
+          "end": 43.04
+        },
+        {
+          "word": "left",
+          "start": 43.04,
+          "end": 43.4
+        },
+        {
+          "word": "ventricle.",
+          "start": 43.4,
+          "end": 45.98
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 51.2,
+      "end": 61.66,
+      "start_ts": "00:00:51",
+      "end_ts": "00:01:01",
+      "text": "In-period venaciva and superior venaciva carry the oxygenated blood to the right aitrium of the heart.",
+      "words": [
+        {
+          "word": "In",
+          "start": 51.2,
+          "end": 52.2
+        },
+        {
+          "word": "-period",
+          "start": 52.2,
+          "end": 52.52
+        },
+        {
+          "word": "venaciva",
+          "start": 52.52,
+          "end": 53.42
+        },
+        {
+          "word": "and",
+          "start": 53.42,
+          "end": 53.9
+        },
+        {
+          "word": "superior",
+          "start": 53.9,
+          "end": 54.38
+        },
+        {
+          "word": "venaciva",
+          "start": 54.38,
+          "end": 55.44
+        },
+        {
+          "word": "carry",
+          "start": 55.44,
+          "end": 56.18
+        },
+        {
+          "word": "the",
+          "start": 56.18,
+          "end": 56.68
+        },
+        {
+          "word": "oxygenated",
+          "start": 56.68,
+          "end": 57.54
+        },
+        {
+          "word": "blood",
+          "start": 57.54,
+          "end": 57.88
+        },
+        {
+          "word": "to",
+          "start": 57.88,
+          "end": 58.24
+        },
+        {
+          "word": "the",
+          "start": 58.24,
+          "end": 58.4
+        },
+        {
+          "word": "right",
+          "start": 58.4,
+          "end": 58.66
+        },
+        {
+          "word": "aitrium",
+          "start": 58.66,
+          "end": 59.32
+        },
+        {
+          "word": "of",
+          "start": 59.32,
+          "end": 59.82
+        },
+        {
+          "word": "the",
+          "start": 59.82,
+          "end": 60.1
+        },
+        {
+          "word": "heart.",
+          "start": 60.1,
+          "end": 61.66
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 66.46000000000001,
+      "end": 73.58,
+      "start_ts": "00:01:06",
+      "end_ts": "00:01:13",
+      "text": "Blood flows from the right aitrium into the right ventricle through the open tricuspid",
+      "words": [
+        {
+          "word": "Blood",
+          "start": 66.46000000000001,
+          "end": 67.5
+        },
+        {
+          "word": "flows",
+          "start": 67.5,
+          "end": 67.9
+        },
+        {
+          "word": "from",
+          "start": 67.9,
+          "end": 68.34
+        },
+        {
+          "word": "the",
+          "start": 68.34,
+          "end": 68.54
+        },
+        {
+          "word": "right",
+          "start": 68.54,
+          "end": 68.86
+        },
+        {
+          "word": "aitrium",
+          "start": 68.86,
+          "end": 69.5
+        },
+        {
+          "word": "into",
+          "start": 69.5,
+          "end": 69.94
+        },
+        {
+          "word": "the",
+          "start": 69.94,
+          "end": 70.26
+        },
+        {
+          "word": "right",
+          "start": 70.26,
+          "end": 70.58
+        },
+        {
+          "word": "ventricle",
+          "start": 70.58,
+          "end": 71.28
+        },
+        {
+          "word": "through",
+          "start": 71.28,
+          "end": 71.9
+        },
+        {
+          "word": "the",
+          "start": 71.9,
+          "end": 72.3
+        },
+        {
+          "word": "open",
+          "start": 72.3,
+          "end": 72.68
+        },
+        {
+          "word": "tricuspid",
+          "start": 72.68,
+          "end": 73.58
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 73.58,
+      "end": 74.56,
+      "start_ts": "00:01:13",
+      "end_ts": "00:01:14",
+      "text": "wall.",
+      "words": [
+        {
+          "word": "wall.",
+          "start": 73.58,
+          "end": 74.56
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 80.25999999999999,
+      "end": 84.8,
+      "start_ts": "00:01:20",
+      "end_ts": "00:01:24",
+      "text": "When the ventricles are full the tricuspid wall shuts.",
+      "words": [
+        {
+          "word": "When",
+          "start": 79.84,
+          "end": 80.36
+        },
+        {
+          "word": "the",
+          "start": 80.36,
+          "end": 80.64
+        },
+        {
+          "word": "ventricles",
+          "start": 80.64,
+          "end": 81.28
+        },
+        {
+          "word": "are",
+          "start": 81.28,
+          "end": 81.78
+        },
+        {
+          "word": "full",
+          "start": 81.78,
+          "end": 82.28
+        },
+        {
+          "word": "the",
+          "start": 82.28,
+          "end": 82.82
+        },
+        {
+          "word": "tricuspid",
+          "start": 82.82,
+          "end": 83.74
+        },
+        {
+          "word": "wall",
+          "start": 83.74,
+          "end": 84.1
+        },
+        {
+          "word": "shuts.",
+          "start": 84.1,
+          "end": 84.8
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 90.08,
+      "end": 102.8,
+      "start_ts": "00:01:30",
+      "end_ts": "00:01:42",
+      "text": "Blood leads the right ventricle through the pulmonary wall into the pulmonary aitry for oxygenation.",
+      "words": [
+        {
+          "word": "Blood",
+          "start": 90.08,
+          "end": 90.92
+        },
+        {
+          "word": "leads",
+          "start": 90.92,
+          "end": 91.26
+        },
+        {
+          "word": "the",
+          "start": 91.26,
+          "end": 91.68
+        },
+        {
+          "word": "right",
+          "start": 91.68,
+          "end": 91.96
+        },
+        {
+          "word": "ventricle",
+          "start": 91.96,
+          "end": 92.68
+        },
+        {
+          "word": "through",
+          "start": 92.68,
+          "end": 93.04
+        },
+        {
+          "word": "the",
+          "start": 93.04,
+          "end": 93.3
+        },
+        {
+          "word": "pulmonary",
+          "start": 93.3,
+          "end": 93.72
+        },
+        {
+          "word": "wall",
+          "start": 93.72,
+          "end": 94.28
+        },
+        {
+          "word": "into",
+          "start": 94.28,
+          "end": 94.96
+        },
+        {
+          "word": "the",
+          "start": 94.96,
+          "end": 95.28
+        },
+        {
+          "word": "pulmonary",
+          "start": 95.28,
+          "end": 95.86
+        },
+        {
+          "word": "aitry",
+          "start": 95.86,
+          "end": 96.56
+        },
+        {
+          "word": "for",
+          "start": 96.56,
+          "end": 96.9
+        },
+        {
+          "word": "oxygenation.",
+          "start": 96.9,
+          "end": 102.8
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 106.8,
+      "end": 117.56,
+      "start_ts": "00:01:46",
+      "end_ts": "00:01:57",
+      "text": "The pulmonary veins carry oxygenated blood to the left aitrium.",
+      "words": [
+        {
+          "word": "The",
+          "start": 106.8,
+          "end": 107.92
+        },
+        {
+          "word": "pulmonary",
+          "start": 107.92,
+          "end": 108.5
+        },
+        {
+          "word": "veins",
+          "start": 108.5,
+          "end": 109.06
+        },
+        {
+          "word": "carry",
+          "start": 109.06,
+          "end": 109.54
+        },
+        {
+          "word": "oxygenated",
+          "start": 109.54,
+          "end": 110.58
+        },
+        {
+          "word": "blood",
+          "start": 110.58,
+          "end": 110.94
+        },
+        {
+          "word": "to",
+          "start": 110.94,
+          "end": 111.26
+        },
+        {
+          "word": "the",
+          "start": 111.26,
+          "end": 111.52
+        },
+        {
+          "word": "left",
+          "start": 111.52,
+          "end": 111.78
+        },
+        {
+          "word": "aitrium.",
+          "start": 111.78,
+          "end": 117.56
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 121.52000000000001,
+      "end": 129.88,
+      "start_ts": "00:02:01",
+      "end_ts": "00:02:09",
+      "text": "Blood flows from the left aitrium into the left ventricle through the open metal wall.",
+      "words": [
+        {
+          "word": "Blood",
+          "start": 121.52000000000001,
+          "end": 122.4
+        },
+        {
+          "word": "flows",
+          "start": 122.4,
+          "end": 122.8
+        },
+        {
+          "word": "from",
+          "start": 122.8,
+          "end": 123.3
+        },
+        {
+          "word": "the",
+          "start": 123.3,
+          "end": 123.54
+        },
+        {
+          "word": "left",
+          "start": 123.54,
+          "end": 123.82
+        },
+        {
+          "word": "aitrium",
+          "start": 123.82,
+          "end": 124.48
+        },
+        {
+          "word": "into",
+          "start": 124.48,
+          "end": 124.9
+        },
+        {
+          "word": "the",
+          "start": 124.9,
+          "end": 125.22
+        },
+        {
+          "word": "left",
+          "start": 125.22,
+          "end": 125.52
+        },
+        {
+          "word": "ventricle",
+          "start": 125.52,
+          "end": 126.16
+        },
+        {
+          "word": "through",
+          "start": 126.16,
+          "end": 126.78
+        },
+        {
+          "word": "the",
+          "start": 126.78,
+          "end": 127.14
+        },
+        {
+          "word": "open",
+          "start": 127.14,
+          "end": 127.48
+        },
+        {
+          "word": "metal",
+          "start": 127.48,
+          "end": 127.94
+        },
+        {
+          "word": "wall.",
+          "start": 127.94,
+          "end": 129.88
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 134.94,
+      "end": 141.08,
+      "start_ts": "00:02:14",
+      "end_ts": "00:02:21",
+      "text": "When the ventricles are full the metal wall shuts.",
+      "words": [
+        {
+          "word": "When",
+          "start": 134.94,
+          "end": 136.0
+        },
+        {
+          "word": "the",
+          "start": 136.0,
+          "end": 136.24
+        },
+        {
+          "word": "ventricles",
+          "start": 136.24,
+          "end": 136.86
+        },
+        {
+          "word": "are",
+          "start": 136.86,
+          "end": 137.36
+        },
+        {
+          "word": "full",
+          "start": 137.36,
+          "end": 137.74
+        },
+        {
+          "word": "the",
+          "start": 137.74,
+          "end": 138.28
+        },
+        {
+          "word": "metal",
+          "start": 138.28,
+          "end": 138.8
+        },
+        {
+          "word": "wall",
+          "start": 138.8,
+          "end": 139.24
+        },
+        {
+          "word": "shuts.",
+          "start": 139.24,
+          "end": 141.08
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 146.96,
+      "end": 154.34,
+      "start_ts": "00:02:26",
+      "end_ts": "00:02:34",
+      "text": "Blood leaves the left ventricle through the aitric wall into the aitre and to the body.",
+      "words": [
+        {
+          "word": "Blood",
+          "start": 146.96,
+          "end": 147.72
+        },
+        {
+          "word": "leaves",
+          "start": 147.72,
+          "end": 148.08
+        },
+        {
+          "word": "the",
+          "start": 148.08,
+          "end": 148.44
+        },
+        {
+          "word": "left",
+          "start": 148.44,
+          "end": 148.76
+        },
+        {
+          "word": "ventricle",
+          "start": 148.76,
+          "end": 149.42
+        },
+        {
+          "word": "through",
+          "start": 149.42,
+          "end": 149.8
+        },
+        {
+          "word": "the",
+          "start": 149.8,
+          "end": 150.18
+        },
+        {
+          "word": "aitric",
+          "start": 150.18,
+          "end": 150.64
+        },
+        {
+          "word": "wall",
+          "start": 150.64,
+          "end": 150.98
+        },
+        {
+          "word": "into",
+          "start": 150.98,
+          "end": 151.7
+        },
+        {
+          "word": "the",
+          "start": 151.7,
+          "end": 152.1
+        },
+        {
+          "word": "aitre",
+          "start": 152.1,
+          "end": 152.68
+        },
+        {
+          "word": "and",
+          "start": 152.68,
+          "end": 153.0
+        },
+        {
+          "word": "to",
+          "start": 153.0,
+          "end": 153.2
+        },
+        {
+          "word": "the",
+          "start": 153.2,
+          "end": 153.44
+        },
+        {
+          "word": "body.",
+          "start": 153.44,
+          "end": 154.34
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 159.72,
+      "end": 164.52,
+      "start_ts": "00:02:39",
+      "end_ts": "00:02:44",
+      "text": "And this is how the heart functions continuously.",
+      "words": [
+        {
+          "word": "And",
+          "start": 159.72,
+          "end": 160.88
+        },
+        {
+          "word": "this",
+          "start": 160.88,
+          "end": 161.18
+        },
+        {
+          "word": "is",
+          "start": 161.18,
+          "end": 161.56
+        },
+        {
+          "word": "how",
+          "start": 161.56,
+          "end": 161.94
+        },
+        {
+          "word": "the",
+          "start": 161.94,
+          "end": 162.52
+        },
+        {
+          "word": "heart",
+          "start": 162.52,
+          "end": 162.82
+        },
+        {
+          "word": "functions",
+          "start": 162.82,
+          "end": 163.46
+        },
+        {
+          "word": "continuously.",
+          "start": 163.46,
+          "end": 164.52
+        }
+      ]
+    }
+  ],
+  "language": "en",
+  "duration": 164.52
+}

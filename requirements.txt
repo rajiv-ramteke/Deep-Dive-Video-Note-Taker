@@ -1,0 +1,46 @@
+# Core Web Framework
+fastapi
+uvicorn[standard]
+python-multipart
+jinja2
+aiofiles
+
+# Pydantic (Settings management)
+pydantic
+pydantic-settings
+
+# AI / ML - Speech Recognition
+openai-whisper
+torch
+torchaudio
+
+# LLM & NLP
+langchain
+langchain-community
+langchain-openai
+openai
+transformers
+sentence-transformers
+huggingface-hub
+
+# Vector Database / RAG
+faiss-cpu
+numpy
+
+# Audio & Video Processing
+moviepy
+pydub
+ffmpeg-python
+imageio-ffmpeg
+
+# Data Handling
+python-dotenv
+
+# Utilities
+tqdm
+loguru
+httpx
+
+# Testing
+pytest
+pytest-asyncio
