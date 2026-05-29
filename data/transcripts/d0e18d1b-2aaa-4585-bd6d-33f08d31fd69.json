@@ -1,0 +1,447 @@
+{
+  "text": "아 После 216 스蛭тиfle irritating vir Important Farm in cricket roz least i Madhyajasnaam sh People cannotVA暗 hвалifu 잘 fearful Three Mountain Future 发th Sandi Sun is dies he moon and Mars bar appna base bana chukhe hungi and what else? Shahid Ham Insan appna saur bundle ko chhoor kar dusresaur bundle ko jajukhe hungi asahi and rochak tapti kebare me janni keli subscribe and follow us",
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 3.1,
+      "start_ts": "00:00:00",
+      "end_ts": "00:00:03",
+      "text": "아 После 216 스蛭тиfle irritating",
+      "words": [
+        {
+          "word": "아",
+          "start": 0.0,
+          "end": 0.22
+        },
+        {
+          "word": "После",
+          "start": 0.22,
+          "end": 0.32
+        },
+        {
+          "word": "216",
+          "start": 0.32,
+          "end": 0.88
+        },
+        {
+          "word": "스蛭тиfle",
+          "start": 0.88,
+          "end": 2.12
+        },
+        {
+          "word": "irritating",
+          "start": 2.12,
+          "end": 3.1
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "start": 3.1,
+      "end": 4.02,
+      "start_ts": "00:00:03",
+      "end_ts": "00:00:04",
+      "text": "vir Important Farm in cricket roz least",
+      "words": [
+        {
+          "word": "vir",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "word": "Important",
+          "start": 3.1,
+          "end": 3.1
+        },
+        {
+          "word": "Farm",
+          "start": 3.1,
+          "end": 4.02
+        },
+        {
+          "word": "in",
+          "start": 4.02,
+          "end": 4.02
+        },
+        {
+          "word": "cricket",
+          "start": 4.02,
+          "end": 4.02
+        },
+        {
+          "word": "roz",
+          "start": 4.02,
+          "end": 4.02
+        },
+        {
+          "word": "least",
+          "start": 4.02,
+          "end": 4.02
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 4.02,
+      "end": 6.06,
+      "start_ts": "00:00:04",
+      "end_ts": "00:00:06",
+      "text": "i Madhyajasnaam sh People cannotVA暗",
+      "words": [
+        {
+          "word": "i",
+          "start": 4.02,
+          "end": 4.02
+        },
+        {
+          "word": "Madhyajasnaam",
+          "start": 4.02,
+          "end": 4.02
+        },
+        {
+          "word": "sh",
+          "start": 4.02,
+          "end": 4.02
+        },
+        {
+          "word": "People",
+          "start": 4.02,
+          "end": 4.02
+        },
+        {
+          "word": "cannotVA暗",
+          "start": 4.02,
+          "end": 6.06
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 6.06,
+      "end": 20.84,
+      "start_ts": "00:00:06",
+      "end_ts": "00:00:20",
+      "text": "hвалifu 잘 fearful Three Mountain Future",
+      "words": [
+        {
+          "word": "hвалifu",
+          "start": 6.06,
+          "end": 6.22
+        },
+        {
+          "word": "잘",
+          "start": 6.22,
+          "end": 6.52
+        },
+        {
+          "word": "fearful",
+          "start": 6.52,
+          "end": 6.52
+        },
+        {
+          "word": "Three",
+          "start": 6.52,
+          "end": 9.12
+        },
+        {
+          "word": "Mountain",
+          "start": 9.12,
+          "end": 15.82
+        },
+        {
+          "word": "Future发th",
+          "start": 15.82,
+          "end": 20.84
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 20.84,
+      "end": 29.8,
+      "start_ts": "00:00:20",
+      "end_ts": "00:00:29",
+      "text": "发th Sandi Sun is dies",
+      "words": [
+        {
+          "word": "Sandi",
+          "start": 20.84,
+          "end": 21.02
+        },
+        {
+          "word": "Sun",
+          "start": 21.02,
+          "end": 29.7
+        },
+        {
+          "word": "is",
+          "start": 29.7,
+          "end": 29.78
+        },
+        {
+          "word": "dies",
+          "start": 29.78,
+          "end": 29.8
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 29.8,
+      "end": 32.6,
+      "start_ts": "00:00:29",
+      "end_ts": "00:00:32",
+      "text": "he moon and Mars bar appna base bana chukhe hungi",
+      "words": [
+        {
+          "word": "he",
+          "start": 29.8,
+          "end": 30.12
+        },
+        {
+          "word": "moon",
+          "start": 30.12,
+          "end": 30.34
+        },
+        {
+          "word": "and",
+          "start": 30.34,
+          "end": 30.6
+        },
+        {
+          "word": "Mars",
+          "start": 30.6,
+          "end": 30.84
+        },
+        {
+          "word": "bar",
+          "start": 30.84,
+          "end": 31.1
+        },
+        {
+          "word": "appna",
+          "start": 31.1,
+          "end": 31.48
+        },
+        {
+          "word": "base",
+          "start": 31.48,
+          "end": 31.74
+        },
+        {
+          "word": "bana",
+          "start": 31.74,
+          "end": 31.96
+        },
+        {
+          "word": "chukhe",
+          "start": 31.96,
+          "end": 32.2
+        },
+        {
+          "word": "hungi",
+          "start": 32.2,
+          "end": 32.6
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 32.6,
+      "end": 33.0,
+      "start_ts": "00:00:32",
+      "end_ts": "00:00:33",
+      "text": "and what else?",
+      "words": [
+        {
+          "word": "and",
+          "start": 32.6,
+          "end": 32.76
+        },
+        {
+          "word": "what",
+          "start": 32.76,
+          "end": 32.9
+        },
+        {
+          "word": "else?",
+          "start": 32.9,
+          "end": 33.0
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 33.32,
+      "end": 35.72,
+      "start_ts": "00:00:33",
+      "end_ts": "00:00:35",
+      "text": "Shahid Ham Insan appna saur bundle ko chhoor kar",
+      "words": [
+        {
+          "word": "Shahid",
+          "start": 33.32,
+          "end": 33.74
+        },
+        {
+          "word": "Ham",
+          "start": 33.74,
+          "end": 33.9
+        },
+        {
+          "word": "Insan",
+          "start": 33.9,
+          "end": 34.32
+        },
+        {
+          "word": "appna",
+          "start": 34.32,
+          "end": 34.54
+        },
+        {
+          "word": "saur",
+          "start": 34.54,
+          "end": 34.82
+        },
+        {
+          "word": "bundle",
+          "start": 34.82,
+          "end": 35.06
+        },
+        {
+          "word": "ko",
+          "start": 35.06,
+          "end": 35.22
+        },
+        {
+          "word": "chhoor",
+          "start": 35.22,
+          "end": 35.44
+        },
+        {
+          "word": "kar",
+          "start": 35.44,
+          "end": 35.72
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 35.72,
+      "end": 37.44,
+      "start_ts": "00:00:35",
+      "end_ts": "00:00:37",
+      "text": "dusresaur bundle ko jajukhe hungi",
+      "words": [
+        {
+          "word": "dusresaur",
+          "start": 35.72,
+          "end": 36.28
+        },
+        {
+          "word": "bundle",
+          "start": 36.28,
+          "end": 36.52
+        },
+        {
+          "word": "ko",
+          "start": 36.52,
+          "end": 36.68
+        },
+        {
+          "word": "jajukhe",
+          "start": 36.68,
+          "end": 37.08
+        },
+        {
+          "word": "hungi",
+          "start": 37.08,
+          "end": 37.44
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 37.44,
+      "end": 39.3,
+      "start_ts": "00:00:37",
+      "end_ts": "00:00:39",
+      "text": "asahi and rochak tapti kebare me",
+      "words": [
+        {
+          "word": "asahi",
+          "start": 37.44,
+          "end": 37.82
+        },
+        {
+          "word": "and",
+          "start": 37.82,
+          "end": 38.04
+        },
+        {
+          "word": "rochak",
+          "start": 38.04,
+          "end": 38.32
+        },
+        {
+          "word": "tapti",
+          "start": 38.32,
+          "end": 38.54
+        },
+        {
+          "word": "kebare",
+          "start": 38.54,
+          "end": 38.74
+        },
+        {
+          "word": "me",
+          "start": 38.74,
+          "end": 39.3
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 39.3,
+      "end": 41.16,
+      "start_ts": "00:00:39",
+      "end_ts": "00:00:41",
+      "text": "janni keli subscribe and follow us",
+      "words": [
+        {
+          "word": "janni",
+          "start": 39.3,
+          "end": 39.72
+        },
+        {
+          "word": "keli",
+          "start": 39.72,
+          "end": 39.9
+        },
+        {
+          "word": "subscribe",
+          "start": 39.9,
+          "end": 40.28
+        },
+        {
+          "word": "and",
+          "start": 40.28,
+          "end": 40.78
+        },
+        {
+          "word": "follow",
+          "start": 40.78,
+          "end": 41.16
+        },
+        {
+          "word": "us",
+          "start": 41.16,
+          "end": 41.16
+        }
+      ]
+    }
+  ],
+  "language": "hi",
+  "duration": 41.16
+}

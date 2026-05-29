@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep-Dive Video Note Taker — AI-Powered Video Analysis</title>
+  <meta name="description"
+    content="Convert long-form videos into structured notes, timestamped highlights, and actionable insights using AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css?v=5" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════ HEADER ══ -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">🎬</div>
+        <div>
+          <span class="logo-title">Deep-Dive</span>
+          <span class="logo-sub">Video Note Taker</span>
+        </div>
+      </div>
+      <nav class="nav-pills">
+        <a href="#upload-section" class="nav-pill active">Upload</a>
+        <a href="#results-section" class="nav-pill">Results</a>
+        <a href="#search-section" class="nav-pill">Search</a>
+      </nav>
+      <div class="header-badge">
+        <span class="pulse-dot"></span> AI Ready
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════ HERO ══ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">✨ AI-Powered · ASR + LLM + RAG</div>
+      <h1 class="hero-title">
+        Turn Any Video Into<br />
+        <span class="gradient-text">Structured Insights</span>
+      </h1>
+      <p class="hero-desc">
+        Upload lectures, meetings, or YouTube videos. Get structured notes,
+        timestamped highlights, and actionable tasks — in minutes.
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">85–90%</span><span class="stat-label">Accuracy</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">60–70%</span><span class="stat-label">Time Saved</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Video Length</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ PIPELINE ══ -->
+  <section class="pipeline-section">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <div class="pipeline-steps">
+        <div class="pipeline-step">
+          <div class="step-icon">🎙️</div>
+          <div class="step-num">01</div>
+          <div class="step-title">Audio Extraction</div>
+          <div class="step-desc">FFmpeg extracts clean audio from any video format</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">📝</div>
+          <div class="step-num">02</div>
+          <div class="step-title">ASR Transcription</div>
+          <div class="step-desc">OpenAI Whisper converts speech to timestamped text</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">🧠</div>
+          <div class="step-num">03</div>
+          <div class="step-title">LLM Summarization</div>
+          <div class="step-desc">GPT-3.5 / BART generates structured summaries</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">🔍</div>
+          <div class="step-num">04</div>
+          <div class="step-title">RAG Indexing</div>
+          <div class="step-desc">FAISS enables semantic search over your video</div>
+        </div>
+        <div class="pipeline-arrow">→</div>
+        <div class="pipeline-step">
+          <div class="step-icon">📋</div>
+          <div class="step-num">05</div>
+          <div class="step-title">Note Generation</div>
+          <div class="step-desc">Structured notes + timestamps + action items</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ UPLOAD ══ -->
+  <section id="upload-section" class="upload-section">
+    <div class="container">
+      <h2 class="section-title">Upload Your Video</h2>
+      <p class="section-subtitle">Supports MP4, AVI, MOV, MKV, WebM, MP3, WAV · Max 500 MB</p>
+
+      <div class="upload-grid">
+        <!-- Drop Zone -->
+        <div class="upload-card">
+          <div id="drop-zone" class="drop-zone" onclick="document.getElementById('file-input').click()">
+            <div class="drop-icon">📁</div>
+            <div class="drop-title">Drop video here</div>
+            <div class="drop-sub">or click to browse</div>
+            <input type="file" id="file-input" accept="video/*,audio/*" hidden />
+          </div>
+
+          <div id="file-preview" class="file-preview hidden">
+            <div class="file-icon">🎬</div>
+            <div class="file-info">
+              <div class="file-name" id="preview-name">—</div>
+              <div class="file-size" id="preview-size">—</div>
+            </div>
+            <button class="btn-clear" onclick="clearFile()">✕</button>
+          </div>
+        </div>
+
+        <!-- Config -->
+        <div class="config-card">
+          <h3 class="config-title">Configuration</h3>
+
+          <div class="form-group">
+            <label class="form-label">OpenAI API Key <span class="optional">(optional)</span></label>
+            <input type="password" id="openai-key" class="form-input" placeholder="sk-…" />
+            <div class="form-hint">Leave empty to use local HuggingFace models</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Whisper Model</label>
+            <select id="whisper-model" class="form-input">
+              <option value="base" selected>Base (fast, good accuracy)</option>
+              <option value="small">Small (balanced)</option>
+              <option value="medium">Medium (high accuracy)</option>
+              <option value="large">Large (best accuracy)</option>
+              <option value="tiny">Tiny (fastest)</option>
+            </select>
+          </div>
+
+
+          <div class="feature-toggles">
+            <label class="toggle-item">
+              <input type="checkbox" id="toggle-rag" checked />
+              <span class="toggle-label">🔍 Enable RAG Search</span>
+            </label>
+            <label class="toggle-item">
+              <input type="checkbox" id="toggle-actions" checked />
+              <span class="toggle-label">✅ Extract Action Items</span>
+            </label>
+            <label class="toggle-item">
+              <input type="checkbox" id="toggle-chapters" checked />
+              <span class="toggle-label">📚 Generate Chapters</span>
+            </label>
+          </div>
+
+          <button id="process-btn" class="btn-primary" onclick="startProcessing()" disabled>
+            <span class="btn-icon">🚀</span>
+            <span class="btn-text">Process Video</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div id="progress-section" class="progress-section hidden">
+        <div class="progress-header">
+          <span id="progress-label">Processing…</span>
+          <span id="progress-pct">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progress-bar" class="progress-bar-fill" style="width:0%"></div>
+        </div>
+        <div class="progress-steps">
+          <div class="progress-step" data-step="audio">🎙️ Audio</div>
+          <div class="progress-step" data-step="asr">📝 ASR</div>
+          <div class="progress-step" data-step="llm">🧠 LLM</div>
+          <div class="progress-step" data-step="rag">🔍 RAG</div>
+          <div class="progress-step" data-step="notes">📋 Notes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ RESULTS ══ -->
+  <section id="results-section" class="results-section hidden">
+    <div class="container">
+      <div class="results-header">
+        <h2 class="section-title">📋 Your Notes</h2>
+        <div class="results-actions">
+          <select id="translate-lang" class="form-input"
+            style="width: auto; padding: 6px 12px; font-size: 13px; margin-right: 8px;">
+            <option value="English">🇬🇧 English</option>
+            <option value="Hindi">🇮🇳 हिंदी</option>
+            <option value="Marathi">🟠 मराठी</option>
+          </select>
+          <button id="translate-btn" class="btn-secondary" onclick="translateNotes()" style="margin-right: 16px;">🌐
+            Translate</button>
+          <button class="btn-secondary" onclick="copyNotes()">📋 Copy</button>
+        </div>
+      </div>
+
+      <!-- Tab Bar -->
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('notes',this)">📝 Notes</button>
+        <button class="tab" onclick="switchTab('quiz',this)">🎯 Quiz</button>
+        <button class="tab" onclick="switchTab('actions',this)">📚 Topics</button>
+        <button class="tab" onclick="switchTab('qa',this)">❓ Q&A</button>
+        <button class="tab" onclick="switchTab('transcript',this)">📜 Transcript</button>
+      </div>
+
+      <!-- Notes Tab -->
+      <div id="tab-notes" class="tab-content active">
+        <div id="notes-output" class="notes-output"></div>
+      </div>
+
+      <!-- Quiz Tab -->
+      <div id="tab-quiz" class="tab-content">
+        <div id="quiz-output" class="actions-list"></div>
+      </div>
+
+      <!-- Topics Tab -->
+      <div id="tab-actions" class="tab-content">
+        <div id="actions-output" class="actions-list"></div>
+      </div>
+
+      <!-- Q&A Tab -->
+      <div id="tab-qa" class="tab-content">
+        <div id="qa-output" class="actions-list"></div>
+      </div>
+
+      <!-- Transcript Tab -->
+      <div id="tab-transcript" class="tab-content">
+        <div id="transcript-output" class="transcript-output"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ SEARCH ══ -->
+  <section id="search-section" class="search-section">
+    <div class="container">
+      <h2 class="section-title">🔍 Ask AI About Your Video</h2>
+      <p class="section-subtitle">Ask anything about the video content using natural language and get an AI answer.</p>
+
+      <div class="search-box">
+        <input type="text" id="search-input" class="search-input"
+          placeholder="e.g. What is the main conclusion of the video?" onkeydown="if(event.key==='Enter') doSearch()" />
+        <button class="btn-search" onclick="doSearch()">Ask AI →</button>
+      </div>
+
+      <div id="search-results" class="search-results"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ TOAST ══ -->
+  <div id="toast" class="toast hidden">
+    <span id="toast-msg"></span>
+  </div>
+
+  <script src="/static/js/script.js?v=5"></script>
+</body>
+
+</html>

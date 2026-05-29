@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: deep-dive-note-taker
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist data, models and outputs between restarts
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LLM_PROVIDER=${LLM_PROVIDER:-openai}
+      - WHISPER_MODEL=${WHISPER_MODEL:-base}
+      - WHISPER_DEVICE=cpu
+      - APP_HOST=0.0.0.0
+      - APP_PORT=8000
+      - DEBUG=False
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Optional: GPU-enabled variant
+  # app-gpu:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   runtime: nvidia
+  #   environment:
+  #     - WHISPER_DEVICE=cuda
+  #   ports:
+  #     - "8001:8000"

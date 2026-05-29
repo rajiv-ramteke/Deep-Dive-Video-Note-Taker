@@ -1,0 +1,1032 @@
+{
+  "text": "Our heart is a muscular organ which is protected by the rib cage. The heart is divided into 4 chambers. The two upper chambers of heart are called right atrium and left atrium. The two lower chambers of heart are called right ventricle and left ventricle. Inferior vena keva and superior vena keva carry the oxygenated blood to the right atrium of the heart. Blood flows from the right atrium into the right ventricle through the open tricuspid valve. When the ventricles are full the tricuspid valve shuts. Blood leaves the right ventricle through the pulmonary valve into the pulmonary artery for oxygenation. The pulmonary veins carry oxygenated blood to the left atrium. Blood flows from the left atrium into the left ventricle through the open literal valve. When the ventricles are full the literal valve shuts. Blood leaves the left ventricle through the aortic valve into the aorta and to the body. And this is how the heart functions continuously. The heart functions continuously. The heart functions continuously. The heart functions continuously.",
+  "segments": [
+    {
+      "id": 0,
+      "start": 3.299999999999999,
+      "end": 9.2,
+      "start_ts": "00:00:03",
+      "end_ts": "00:00:09",
+      "text": "Our heart is a muscular organ which is protected by the rib cage.",
+      "words": [
+        {
+          "word": "Our",
+          "start": 3.299999999999999,
+          "end": 4.26
+        },
+        {
+          "word": "heart",
+          "start": 4.26,
+          "end": 4.68
+        },
+        {
+          "word": "is",
+          "start": 4.68,
+          "end": 5.0
+        },
+        {
+          "word": "a",
+          "start": 5.0,
+          "end": 5.24
+        },
+        {
+          "word": "muscular",
+          "start": 5.24,
+          "end": 5.78
+        },
+        {
+          "word": "organ",
+          "start": 5.78,
+          "end": 6.42
+        },
+        {
+          "word": "which",
+          "start": 6.42,
+          "end": 7.12
+        },
+        {
+          "word": "is",
+          "start": 7.12,
+          "end": 7.3
+        },
+        {
+          "word": "protected",
+          "start": 7.3,
+          "end": 7.86
+        },
+        {
+          "word": "by",
+          "start": 7.86,
+          "end": 8.2
+        },
+        {
+          "word": "the",
+          "start": 8.2,
+          "end": 8.42
+        },
+        {
+          "word": "rib",
+          "start": 8.42,
+          "end": 8.6
+        },
+        {
+          "word": "cage.",
+          "start": 8.6,
+          "end": 9.2
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "start": 16.2,
+      "end": 18.98,
+      "start_ts": "00:00:16",
+      "end_ts": "00:00:18",
+      "text": "The heart is divided into 4 chambers.",
+      "words": [
+        {
+          "word": "The",
+          "start": 15.780000000000001,
+          "end": 16.26
+        },
+        {
+          "word": "heart",
+          "start": 16.26,
+          "end": 16.7
+        },
+        {
+          "word": "is",
+          "start": 16.7,
+          "end": 17.02
+        },
+        {
+          "word": "divided",
+          "start": 17.02,
+          "end": 17.56
+        },
+        {
+          "word": "into",
+          "start": 17.56,
+          "end": 18.02
+        },
+        {
+          "word": "4",
+          "start": 18.02,
+          "end": 18.52
+        },
+        {
+          "word": "chambers.",
+          "start": 18.52,
+          "end": 18.98
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 24.699999999999996,
+      "end": 31.84,
+      "start_ts": "00:00:24",
+      "end_ts": "00:00:31",
+      "text": "The two upper chambers of heart are called right atrium and left atrium.",
+      "words": [
+        {
+          "word": "The",
+          "start": 24.699999999999996,
+          "end": 25.74
+        },
+        {
+          "word": "two",
+          "start": 25.74,
+          "end": 26.14
+        },
+        {
+          "word": "upper",
+          "start": 26.14,
+          "end": 26.58
+        },
+        {
+          "word": "chambers",
+          "start": 26.58,
+          "end": 26.94
+        },
+        {
+          "word": "of",
+          "start": 26.94,
+          "end": 27.56
+        },
+        {
+          "word": "heart",
+          "start": 27.56,
+          "end": 27.78
+        },
+        {
+          "word": "are",
+          "start": 27.78,
+          "end": 28.22
+        },
+        {
+          "word": "called",
+          "start": 28.22,
+          "end": 28.78
+        },
+        {
+          "word": "right",
+          "start": 28.78,
+          "end": 29.44
+        },
+        {
+          "word": "atrium",
+          "start": 29.44,
+          "end": 30.14
+        },
+        {
+          "word": "and",
+          "start": 30.14,
+          "end": 30.62
+        },
+        {
+          "word": "left",
+          "start": 30.62,
+          "end": 31.02
+        },
+        {
+          "word": "atrium.",
+          "start": 31.02,
+          "end": 31.84
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 37.0,
+      "end": 46.46,
+      "start_ts": "00:00:37",
+      "end_ts": "00:00:46",
+      "text": "The two lower chambers of heart are called right ventricle and left ventricle.",
+      "words": [
+        {
+          "word": "The",
+          "start": 37.0,
+          "end": 37.96
+        },
+        {
+          "word": "two",
+          "start": 37.96,
+          "end": 38.3
+        },
+        {
+          "word": "lower",
+          "start": 38.3,
+          "end": 38.74
+        },
+        {
+          "word": "chambers",
+          "start": 38.74,
+          "end": 39.14
+        },
+        {
+          "word": "of",
+          "start": 39.14,
+          "end": 39.68
+        },
+        {
+          "word": "heart",
+          "start": 39.68,
+          "end": 39.94
+        },
+        {
+          "word": "are",
+          "start": 39.94,
+          "end": 40.34
+        },
+        {
+          "word": "called",
+          "start": 40.34,
+          "end": 41.0
+        },
+        {
+          "word": "right",
+          "start": 41.0,
+          "end": 41.54
+        },
+        {
+          "word": "ventricle",
+          "start": 41.54,
+          "end": 42.36
+        },
+        {
+          "word": "and",
+          "start": 42.36,
+          "end": 42.84
+        },
+        {
+          "word": "left",
+          "start": 42.84,
+          "end": 43.18
+        },
+        {
+          "word": "ventricle.",
+          "start": 43.18,
+          "end": 46.46
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 51.5,
+      "end": 60.34,
+      "start_ts": "00:00:51",
+      "end_ts": "00:01:00",
+      "text": "Inferior vena keva and superior vena keva carry the oxygenated blood to the right atrium of the heart.",
+      "words": [
+        {
+          "word": "Inferior",
+          "start": 51.5,
+          "end": 52.46
+        },
+        {
+          "word": "vena",
+          "start": 52.46,
+          "end": 52.84
+        },
+        {
+          "word": "keva",
+          "start": 52.84,
+          "end": 53.26
+        },
+        {
+          "word": "and",
+          "start": 53.26,
+          "end": 53.74
+        },
+        {
+          "word": "superior",
+          "start": 53.74,
+          "end": 54.22
+        },
+        {
+          "word": "vena",
+          "start": 54.22,
+          "end": 54.74
+        },
+        {
+          "word": "keva",
+          "start": 54.74,
+          "end": 55.26
+        },
+        {
+          "word": "carry",
+          "start": 55.26,
+          "end": 55.98
+        },
+        {
+          "word": "the",
+          "start": 55.98,
+          "end": 56.36
+        },
+        {
+          "word": "oxygenated",
+          "start": 56.36,
+          "end": 57.4
+        },
+        {
+          "word": "blood",
+          "start": 57.4,
+          "end": 57.66
+        },
+        {
+          "word": "to",
+          "start": 57.66,
+          "end": 57.98
+        },
+        {
+          "word": "the",
+          "start": 57.98,
+          "end": 58.14
+        },
+        {
+          "word": "right",
+          "start": 58.14,
+          "end": 58.5
+        },
+        {
+          "word": "atrium",
+          "start": 58.5,
+          "end": 59.16
+        },
+        {
+          "word": "of",
+          "start": 59.16,
+          "end": 59.58
+        },
+        {
+          "word": "the",
+          "start": 59.58,
+          "end": 59.82
+        },
+        {
+          "word": "heart.",
+          "start": 59.82,
+          "end": 60.34
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 66.38,
+      "end": 73.9,
+      "start_ts": "00:01:06",
+      "end_ts": "00:01:13",
+      "text": "Blood flows from the right atrium into the right ventricle through the open tricuspid valve.",
+      "words": [
+        {
+          "word": "Blood",
+          "start": 66.38,
+          "end": 67.3
+        },
+        {
+          "word": "flows",
+          "start": 67.3,
+          "end": 67.68
+        },
+        {
+          "word": "from",
+          "start": 67.68,
+          "end": 68.12
+        },
+        {
+          "word": "the",
+          "start": 68.12,
+          "end": 68.34
+        },
+        {
+          "word": "right",
+          "start": 68.34,
+          "end": 68.66
+        },
+        {
+          "word": "atrium",
+          "start": 68.66,
+          "end": 69.4
+        },
+        {
+          "word": "into",
+          "start": 69.4,
+          "end": 69.82
+        },
+        {
+          "word": "the",
+          "start": 69.82,
+          "end": 70.02
+        },
+        {
+          "word": "right",
+          "start": 70.02,
+          "end": 70.48
+        },
+        {
+          "word": "ventricle",
+          "start": 70.48,
+          "end": 71.2
+        },
+        {
+          "word": "through",
+          "start": 71.2,
+          "end": 71.76
+        },
+        {
+          "word": "the",
+          "start": 71.76,
+          "end": 71.96
+        },
+        {
+          "word": "open",
+          "start": 71.96,
+          "end": 72.52
+        },
+        {
+          "word": "tricuspid",
+          "start": 72.52,
+          "end": 73.44
+        },
+        {
+          "word": "valve.",
+          "start": 73.44,
+          "end": 73.9
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 78.83999999999999,
+      "end": 84.66,
+      "start_ts": "00:01:18",
+      "end_ts": "00:01:24",
+      "text": "When the ventricles are full the tricuspid valve shuts.",
+      "words": [
+        {
+          "word": "When",
+          "start": 78.83999999999999,
+          "end": 80.24
+        },
+        {
+          "word": "the",
+          "start": 80.24,
+          "end": 80.48
+        },
+        {
+          "word": "ventricles",
+          "start": 80.48,
+          "end": 81.14
+        },
+        {
+          "word": "are",
+          "start": 81.14,
+          "end": 81.54
+        },
+        {
+          "word": "full",
+          "start": 81.54,
+          "end": 81.88
+        },
+        {
+          "word": "the",
+          "start": 81.88,
+          "end": 82.62
+        },
+        {
+          "word": "tricuspid",
+          "start": 82.62,
+          "end": 83.6
+        },
+        {
+          "word": "valve",
+          "start": 83.6,
+          "end": 83.92
+        },
+        {
+          "word": "shuts.",
+          "start": 83.92,
+          "end": 84.66
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 89.74,
+      "end": 98.6,
+      "start_ts": "00:01:29",
+      "end_ts": "00:01:38",
+      "text": "Blood leaves the right ventricle through the pulmonary valve into the pulmonary artery for oxygenation.",
+      "words": [
+        {
+          "word": "Blood",
+          "start": 89.74,
+          "end": 90.74
+        },
+        {
+          "word": "leaves",
+          "start": 90.74,
+          "end": 91.08
+        },
+        {
+          "word": "the",
+          "start": 91.08,
+          "end": 91.48
+        },
+        {
+          "word": "right",
+          "start": 91.48,
+          "end": 91.8
+        },
+        {
+          "word": "ventricle",
+          "start": 91.8,
+          "end": 92.58
+        },
+        {
+          "word": "through",
+          "start": 92.58,
+          "end": 92.86
+        },
+        {
+          "word": "the",
+          "start": 92.86,
+          "end": 93.08
+        },
+        {
+          "word": "pulmonary",
+          "start": 93.08,
+          "end": 93.6
+        },
+        {
+          "word": "valve",
+          "start": 93.6,
+          "end": 94.0
+        },
+        {
+          "word": "into",
+          "start": 94.0,
+          "end": 94.82
+        },
+        {
+          "word": "the",
+          "start": 94.82,
+          "end": 95.06
+        },
+        {
+          "word": "pulmonary",
+          "start": 95.06,
+          "end": 95.68
+        },
+        {
+          "word": "artery",
+          "start": 95.68,
+          "end": 96.2
+        },
+        {
+          "word": "for",
+          "start": 96.2,
+          "end": 96.7
+        },
+        {
+          "word": "oxygenation.",
+          "start": 96.7,
+          "end": 98.6
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 106.77999999999999,
+      "end": 112.42,
+      "start_ts": "00:01:46",
+      "end_ts": "00:01:52",
+      "text": "The pulmonary veins carry oxygenated blood to the left atrium.",
+      "words": [
+        {
+          "word": "The",
+          "start": 106.77999999999999,
+          "end": 107.82
+        },
+        {
+          "word": "pulmonary",
+          "start": 107.82,
+          "end": 108.32
+        },
+        {
+          "word": "veins",
+          "start": 108.32,
+          "end": 108.88
+        },
+        {
+          "word": "carry",
+          "start": 108.88,
+          "end": 109.4
+        },
+        {
+          "word": "oxygenated",
+          "start": 109.4,
+          "end": 110.4
+        },
+        {
+          "word": "blood",
+          "start": 110.4,
+          "end": 110.72
+        },
+        {
+          "word": "to",
+          "start": 110.72,
+          "end": 111.04
+        },
+        {
+          "word": "the",
+          "start": 111.04,
+          "end": 111.22
+        },
+        {
+          "word": "left",
+          "start": 111.22,
+          "end": 111.62
+        },
+        {
+          "word": "atrium.",
+          "start": 111.62,
+          "end": 112.42
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 121.34,
+      "end": 128.44,
+      "start_ts": "00:02:01",
+      "end_ts": "00:02:08",
+      "text": "Blood flows from the left atrium into the left ventricle through the open literal valve.",
+      "words": [
+        {
+          "word": "Blood",
+          "start": 121.34,
+          "end": 122.22
+        },
+        {
+          "word": "flows",
+          "start": 122.22,
+          "end": 122.6
+        },
+        {
+          "word": "from",
+          "start": 122.6,
+          "end": 123.02
+        },
+        {
+          "word": "the",
+          "start": 123.02,
+          "end": 123.28
+        },
+        {
+          "word": "left",
+          "start": 123.28,
+          "end": 123.68
+        },
+        {
+          "word": "atrium",
+          "start": 123.68,
+          "end": 124.32
+        },
+        {
+          "word": "into",
+          "start": 124.32,
+          "end": 124.74
+        },
+        {
+          "word": "the",
+          "start": 124.74,
+          "end": 124.96
+        },
+        {
+          "word": "left",
+          "start": 124.96,
+          "end": 125.36
+        },
+        {
+          "word": "ventricle",
+          "start": 125.36,
+          "end": 126.08
+        },
+        {
+          "word": "through",
+          "start": 126.08,
+          "end": 126.64
+        },
+        {
+          "word": "the",
+          "start": 126.64,
+          "end": 126.86
+        },
+        {
+          "word": "open",
+          "start": 126.86,
+          "end": 127.32
+        },
+        {
+          "word": "literal",
+          "start": 127.32,
+          "end": 127.78
+        },
+        {
+          "word": "valve.",
+          "start": 127.78,
+          "end": 128.44
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 134.62,
+      "end": 139.76,
+      "start_ts": "00:02:14",
+      "end_ts": "00:02:19",
+      "text": "When the ventricles are full the literal valve shuts.",
+      "words": [
+        {
+          "word": "When",
+          "start": 134.62,
+          "end": 135.8
+        },
+        {
+          "word": "the",
+          "start": 135.8,
+          "end": 136.06
+        },
+        {
+          "word": "ventricles",
+          "start": 136.06,
+          "end": 136.76
+        },
+        {
+          "word": "are",
+          "start": 136.76,
+          "end": 137.1
+        },
+        {
+          "word": "full",
+          "start": 137.1,
+          "end": 137.44
+        },
+        {
+          "word": "the",
+          "start": 137.44,
+          "end": 138.14
+        },
+        {
+          "word": "literal",
+          "start": 138.14,
+          "end": 138.62
+        },
+        {
+          "word": "valve",
+          "start": 138.62,
+          "end": 139.04
+        },
+        {
+          "word": "shuts.",
+          "start": 139.04,
+          "end": 139.76
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 146.66,
+      "end": 153.84,
+      "start_ts": "00:02:26",
+      "end_ts": "00:02:33",
+      "text": "Blood leaves the left ventricle through the aortic valve into the aorta and to the body.",
+      "words": [
+        {
+          "word": "Blood",
+          "start": 146.66,
+          "end": 147.5
+        },
+        {
+          "word": "leaves",
+          "start": 147.5,
+          "end": 147.84
+        },
+        {
+          "word": "the",
+          "start": 147.84,
+          "end": 148.24
+        },
+        {
+          "word": "left",
+          "start": 148.24,
+          "end": 148.56
+        },
+        {
+          "word": "ventricle",
+          "start": 148.56,
+          "end": 149.36
+        },
+        {
+          "word": "through",
+          "start": 149.36,
+          "end": 149.62
+        },
+        {
+          "word": "the",
+          "start": 149.62,
+          "end": 149.84
+        },
+        {
+          "word": "aortic",
+          "start": 149.84,
+          "end": 150.36
+        },
+        {
+          "word": "valve",
+          "start": 150.36,
+          "end": 150.78
+        },
+        {
+          "word": "into",
+          "start": 150.78,
+          "end": 151.56
+        },
+        {
+          "word": "the",
+          "start": 151.56,
+          "end": 151.9
+        },
+        {
+          "word": "aorta",
+          "start": 151.9,
+          "end": 152.36
+        },
+        {
+          "word": "and",
+          "start": 152.36,
+          "end": 152.84
+        },
+        {
+          "word": "to",
+          "start": 152.84,
+          "end": 153.1
+        },
+        {
+          "word": "the",
+          "start": 153.1,
+          "end": 153.26
+        },
+        {
+          "word": "body.",
+          "start": 153.26,
+          "end": 153.84
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 159.48,
+      "end": 164.5,
+      "start_ts": "00:02:39",
+      "end_ts": "00:02:44",
+      "text": "And this is how the heart functions continuously.",
+      "words": [
+        {
+          "word": "And",
+          "start": 159.48,
+          "end": 160.64
+        },
+        {
+          "word": "this",
+          "start": 160.64,
+          "end": 161.02
+        },
+        {
+          "word": "is",
+          "start": 161.02,
+          "end": 161.34
+        },
+        {
+          "word": "how",
+          "start": 161.34,
+          "end": 161.66
+        },
+        {
+          "word": "the",
+          "start": 161.66,
+          "end": 162.24
+        },
+        {
+          "word": "heart",
+          "start": 162.24,
+          "end": 162.62
+        },
+        {
+          "word": "functions",
+          "start": 162.62,
+          "end": 163.38
+        },
+        {
+          "word": "continuously.",
+          "start": 163.38,
+          "end": 164.5
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 211.01999999999998,
+      "end": 213.82,
+      "start_ts": "00:03:31",
+      "end_ts": "00:03:33",
+      "text": "The heart functions continuously.",
+      "words": [
+        {
+          "word": "The",
+          "start": 211.01999999999998,
+          "end": 212.42
+        },
+        {
+          "word": "heart",
+          "start": 212.42,
+          "end": 213.82
+        },
+        {
+          "word": "functions",
+          "start": 213.82,
+          "end": 213.82
+        },
+        {
+          "word": "continuously.",
+          "start": 213.82,
+          "end": 213.82
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 240.79999999999998,
+      "end": 243.64,
+      "start_ts": "00:04:00",
+      "end_ts": "00:04:03",
+      "text": "The heart functions continuously.",
+      "words": [
+        {
+          "word": "The",
+          "start": 240.79999999999998,
+          "end": 242.2
+        },
+        {
+          "word": "heart",
+          "start": 242.2,
+          "end": 243.6
+        },
+        {
+          "word": "functions",
+          "start": 243.6,
+          "end": 243.6
+        },
+        {
+          "word": "continuously.",
+          "start": 243.6,
+          "end": 243.64
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 263.72,
+      "end": 265.12,
+      "start_ts": "00:04:23",
+      "end_ts": "00:04:25",
+      "text": "The heart functions continuously.",
+      "words": [
+        {
+          "word": "The",
+          "start": 263.72,
+          "end": 265.12
+        },
+        {
+          "word": "heart",
+          "start": 265.12,
+          "end": 265.12
+        },
+        {
+          "word": "functions",
+          "start": 265.12,
+          "end": 265.12
+        },
+        {
+          "word": "continuously.",
+          "start": 265.12,
+          "end": 265.12
+        }
+      ]
+    }
+  ],
+  "language": "en",
+  "duration": 265.12
+}
