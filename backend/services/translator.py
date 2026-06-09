@@ -30,7 +30,8 @@ class Translator:
     def _get_client(self):
         if self._openai_client is None:
             from openai import OpenAI
-            kwargs = {"api_key": settings.OPENAI_API_KEY}
+            import os
+            kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL
             self._openai_client = OpenAI(**kwargs)
@@ -40,6 +41,12 @@ class Translator:
         """Translate a JSON array of dicts by feeding it to the LLM."""
         if not data:
             return []
+        
+        import os
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        if not has_key:
+            logger.warning("No OpenAI API key for translation. Returning original data.")
+            return data
         
         # Batch translation if too large? For now, we will do it in one go for 
         # topics, qa_pairs, and highlights since they are small.

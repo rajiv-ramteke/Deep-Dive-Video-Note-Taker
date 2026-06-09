@@ -77,6 +77,7 @@ async def upload_and_process(
     # Override API key if provided via form
     if openai_key:
         os.environ["OPENAI_API_KEY"] = openai_key
+        settings.OPENAI_API_KEY = openai_key
 
     # Register job
     _jobs[job_id] = {

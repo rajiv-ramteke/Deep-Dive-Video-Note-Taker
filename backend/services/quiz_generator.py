@@ -48,7 +48,9 @@ class QuizGenerator:
         combined_text = " ".join([c["text"] for c in chunks])
         text_to_process = combined_text[:15000]
 
-        if settings.LLM_PROVIDER == "openai" and settings.OPENAI_API_KEY:
+        import os
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        if settings.LLM_PROVIDER == "openai" and has_key:
             return self._generate_with_llm(text_to_process, language)
         else:
             logger.warning("No OpenAI key. Skipping quiz generation.")
@@ -57,7 +59,8 @@ class QuizGenerator:
     def _generate_with_llm(self, text: str, language: str) -> List[Dict]:
         try:
             from openai import OpenAI
-            kwargs = {"api_key": settings.OPENAI_API_KEY}
+            import os
+            kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL
             client = OpenAI(**kwargs)

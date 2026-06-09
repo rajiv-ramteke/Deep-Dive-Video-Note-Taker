@@ -71,7 +71,8 @@ class TopicExtractor:
         combined_text = " ".join([c["text"] for c in chunks])
         text_to_process = combined_text[:15000]
 
-        if settings.LLM_PROVIDER == "openai" and settings.OPENAI_API_KEY:
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        if settings.LLM_PROVIDER == "openai" and has_key:
             topics = self._extract_with_llm(text_to_process, language)
         else:
             logger.warning("OpenAI not configured. Using fallback topic extraction.")
@@ -88,7 +89,8 @@ class TopicExtractor:
 
         try:
             from openai import OpenAI
-            kwargs = {"api_key": settings.OPENAI_API_KEY}
+            import os
+            kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL
             client = OpenAI(**kwargs)

@@ -76,7 +76,9 @@ class ActionItemExtractor:
         combined_text = " ".join([c["text"] for c in chunks])
         text_to_process = combined_text[:15000]
 
-        if settings.LLM_PROVIDER == "openai" and settings.OPENAI_API_KEY:
+        import os
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        if settings.LLM_PROVIDER == "openai" and has_key:
             items = self._extract_with_llm(text_to_process, language)
             all_items.extend(items)
         else:
@@ -96,7 +98,9 @@ class ActionItemExtractor:
 
     def _extract_from_chunk(self, chunk: Dict) -> List[Dict]:
         """Try LLM extraction; fall back to regex."""
-        if settings.LLM_PROVIDER == "openai" and settings.OPENAI_API_KEY:
+        import os
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        if settings.LLM_PROVIDER == "openai" and has_key:
             items = self._extract_with_llm(chunk["text"])
         else:
             items = self._extract_with_regex(chunk["text"])
@@ -108,13 +112,14 @@ class ActionItemExtractor:
 
         return items
 
-    def _extract_with_llm(self, text: str, language: str) -> List[Dict]:
+    def _extract_with_llm(self, text: str, language: str = "English") -> List[Dict]:
         """Use OpenAI to extract structured action items."""
         import json as _json
         try:
             from openai import OpenAI
+            import os
             if self._openai_client is None:
-                kwargs = {"api_key": settings.OPENAI_API_KEY}
+                kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
                 if settings.OPENAI_BASE_URL:
                     kwargs["base_url"] = settings.OPENAI_BASE_URL
                 self._openai_client = OpenAI(**kwargs)

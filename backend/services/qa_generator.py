@@ -68,7 +68,9 @@ class QAGenerator:
         max_chars = 15000
         text_to_process = combined_text[:max_chars]
 
-        if settings.LLM_PROVIDER == "openai" and settings.OPENAI_API_KEY:
+        import os
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        if settings.LLM_PROVIDER == "openai" and has_key:
             qa_pairs = self._generate_with_llm(text_to_process, language)
             all_qa.extend(qa_pairs)
         else:
@@ -84,7 +86,8 @@ class QAGenerator:
         import json as _json
         try:
             from openai import OpenAI
-            kwargs = {"api_key": settings.OPENAI_API_KEY}
+            import os
+            kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL
             client = OpenAI(**kwargs)

@@ -153,14 +153,18 @@ class Summarizer:
 
     def _summarize_text(self, text: str, language: str) -> str:
         """Dispatch to the configured LLM backend."""
-        if settings.LLM_PROVIDER == "openai":
+        import os
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        if settings.LLM_PROVIDER == "openai" and has_key:
             return self._summarize_openai(text, language)
         else:
             return self._summarize_huggingface(text)
 
     def _llm_complete(self, prompt: str) -> str:
         """Run a full prompt through the configured LLM."""
-        if settings.LLM_PROVIDER == "openai":
+        import os
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        if settings.LLM_PROVIDER == "openai" and has_key:
             return self._openai_chat(prompt)
         else:
             return self._summarize_huggingface(prompt)
@@ -169,7 +173,8 @@ class Summarizer:
 
     def _get_openai_client(self):
         from openai import OpenAI
-        kwargs = {"api_key": settings.OPENAI_API_KEY}
+        import os
+        kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
         if settings.OPENAI_BASE_URL:
             kwargs["base_url"] = settings.OPENAI_BASE_URL
         return OpenAI(**kwargs)
