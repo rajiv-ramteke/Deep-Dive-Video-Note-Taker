@@ -31,31 +31,26 @@ class WhisperTranscriber:
     def transcribe(self, audio_path: str, job_id: str) -> Dict:
         """
         Transcribe audio file to text.
-
-        Args:
-            audio_path: Path to the WAV audio file.
-            job_id:     Unique job identifier.
-
-        Returns:
-            Dict with keys:
-                - text:     Full transcript as a single string.
-                - segments: List of {id, start, end, text} dicts.
-                - language: Detected language code.
         """
         if not os.path.exists(audio_path):
             raise FileNotFoundError(f"Audio file not found: {audio_path}")
 
-        logger.info(f"Starting Whisper transcription (model={settings.WHISPER_MODEL})")
-        model = self._get_model()
+        logger.info(f"Starting Whisper transcription...")
+        
+        # Check if we can use the much faster and lighter OpenAI API
+        use_api = settings.LLM_PROVIDER == "openai" and bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        
+        if use_api:
+            logger.info("Using OpenAI Whisper API for transcription (fast & memory efficient).")
+            try:
+                transcript = self._transcribe_api(audio_path, job_id)
+            except Exception as e:
+                logger.warning(f"OpenAI API transcription failed ({e}), falling back to local model...")
+                transcript = self._transcribe_local(audio_path, job_id)
+        else:
+            logger.info(f"Using local Whisper model ({settings.WHISPER_MODEL}).")
+            transcript = self._transcribe_local(audio_path, job_id)
 
-        raw = model.transcribe(
-            audio_path,
-            verbose=False,
-            word_timestamps=True,
-            task="transcribe",
-        )
-
-        transcript = self._parse_result(raw)
         out_path = os.path.join(self.output_dir, f"{job_id}.json")
         save_json(transcript, out_path)
 
@@ -64,6 +59,33 @@ class WhisperTranscriber:
             f"language={transcript['language']}"
         )
         return transcript
+
+    def _transcribe_api(self, audio_path: str, job_id: str) -> Dict:
+        from openai import OpenAI
+        client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        
+        # OpenAI API has a 25MB limit. Since we convert to 16kHz mono, this usually allows up to ~1.5 hours of audio.
+        with open(audio_path, "rb") as audio_file:
+            response = client.audio.transcriptions.create(
+                model="whisper-1",
+                file=audio_file,
+                response_format="verbose_json",
+                timestamp_granularities=["word", "segment"]
+            )
+            
+        # Convert OpenAI API response to our expected format
+        raw = response.model_dump()
+        return self._parse_result(raw)
+
+    def _transcribe_local(self, audio_path: str, job_id: str) -> Dict:
+        model = self._get_model()
+        raw = model.transcribe(
+            audio_path,
+            verbose=False,
+            word_timestamps=True,
+            task="transcribe",
+        )
+        return self._parse_result(raw)
 
     # ── Private Methods ───────────────────────────────────────
 
