@@ -102,14 +102,21 @@ class Summarizer:
         Returns:
             Markdown-formatted final notes string.
         """
-        combined = "\n\n".join(
-            f"[{c['start_ts']} → {c['end_ts']}]\n{c['summary']}"
-            for c in summarized_chunks
-            if c.get("summary")
-        )
-        prompt = FINAL_SUMMARY_PROMPT.format(summaries=combined, language=language)
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         logger.info("Generating final structured notes...")
-        final = self._llm_complete(prompt)
+
+        if settings.LLM_PROVIDER == "openai" and has_key:
+            combined = "\n\n".join(
+                f"[{c['start_ts']} → {c['end_ts']}]\n{c['summary']}"
+                for c in summarized_chunks
+                if c.get("summary")
+            )
+            prompt = FINAL_SUMMARY_PROMPT.format(summaries=combined, language=language)
+            final = self._openai_chat(prompt)
+        else:
+            # Rule-based fallback: assemble Markdown directly from chunk summaries
+            final = self._build_notes_from_chunks(summarized_chunks)
+
         logger.info("Final notes generated ✅")
         return final
 
@@ -117,13 +124,20 @@ class Summarizer:
         """
         Translates the final notes into the specified target language.
         """
-        prompt = (
-            f"You are an expert translator. Translate the following Markdown notes into {language}. "
-            f"Maintain all Markdown formatting (headings, bullet points, bold, etc.) exactly as they appear in the original.\n\n"
-            f"Notes:\n\"\"\"\n{notes}\n\"\"\"\n\nTranslated Notes:"
-        )
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         logger.info(f"Translating notes to {language}...")
-        translated = self._llm_complete(prompt)
+
+        if settings.LLM_PROVIDER == "openai" and has_key:
+            prompt = (
+                f"You are an expert translator. Translate the following Markdown notes into {language}. "
+                f"Maintain all Markdown formatting (headings, bullet points, bold, etc.) exactly as they appear in the original.\n\n"
+                f"Notes:\n\"\"\"\n{notes}\n\"\"\"\n\nTranslated Notes:"
+            )
+            translated = self._openai_chat(prompt)
+        else:
+            logger.warning("No OpenAI key available for translation. Returning original notes.")
+            translated = notes
+
         logger.info(f"Notes translated to {language} ✅")
         return translated
 
@@ -132,20 +146,31 @@ class Summarizer:
         Answers a user's question using video context + general AI knowledge
         for a more detailed and educational response.
         """
-        prompt = (
-            f"You are a friendly, knowledgeable human expert having a conversation with the user about a video they just watched.\n\n"
-            f"The user has a question. Below is the relevant portion of the video transcript.\n"
-            f"Your job is to:\n"
-            f"1. Answer the question naturally, clearly, and conversationally, as if you are explaining it to a friend.\n"
-            f"2. Use the transcript context to inform your answer. If the transcript is missing details, seamlessly bring in your own general knowledge to give a great, helpful explanation.\n"
-            f"3. Avoid acting like a robot (don't say 'As an AI' or 'Based on the context'). Just give the answer directly and warmly.\n"
-            f"4. You can use some light formatting (like bolding or a few bullet points if it helps readability), but keep the tone natural and human-like.\n\n"
-            f"Video Transcript Context:\n\"\"\"\n{context}\n\"\"\"\n\n"
-            f"User's Question: {query}\n\n"
-            f"Your natural answer:"
-        )
+        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         logger.info(f"Answering query: '{query}'")
-        answer = self._llm_complete(prompt)
+
+        if settings.LLM_PROVIDER == "openai" and has_key:
+            prompt = (
+                f"You are a friendly, knowledgeable human expert having a conversation with the user about a video they just watched.\n\n"
+                f"The user has a question. Below is the relevant portion of the video transcript.\n"
+                f"Your job is to:\n"
+                f"1. Answer the question naturally, clearly, and conversationally, as if you are explaining it to a friend.\n"
+                f"2. Use the transcript context to inform your answer. If the transcript is missing details, seamlessly bring in your own general knowledge to give a great, helpful explanation.\n"
+                f"3. Avoid acting like a robot (don't say 'As an AI' or 'Based on the context'). Just give the answer directly and warmly.\n"
+                f"4. You can use some light formatting (like bolding or a few bullet points if it helps readability), but keep the tone natural and human-like.\n\n"
+                f"Video Transcript Context:\n\"\"\"\n{context}\n\"\"\"\n\n"
+                f"User's Question: {query}\n\n"
+                f"Your natural answer:"
+            )
+            answer = self._openai_chat(prompt)
+        else:
+            # Fallback: return the most relevant context segments as the answer
+            lines = [f"**Relevant content from the video:**\n"]
+            for line in context.split("\n\n")[:3]:
+                if line.strip():
+                    lines.append(f"> {line.strip()}")
+            answer = "\n\n".join(lines) if lines else "No relevant content found for your query."
+
         logger.info("Answer generated ✅")
         return answer
 
@@ -153,27 +178,47 @@ class Summarizer:
 
     def _summarize_text(self, text: str, language: str) -> str:
         """Dispatch to the configured LLM backend."""
-        import os
         has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         if settings.LLM_PROVIDER == "openai" and has_key:
             return self._summarize_openai(text, language)
         else:
             return self._summarize_huggingface(text)
 
-    def _llm_complete(self, prompt: str) -> str:
-        """Run a full prompt through the configured LLM."""
-        import os
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
-        if settings.LLM_PROVIDER == "openai" and has_key:
-            return self._openai_chat(prompt)
-        else:
-            return self._summarize_huggingface(prompt)
+    def _build_notes_from_chunks(self, summarized_chunks: List[Dict]) -> str:
+        """Rule-based final notes builder used when no LLM is available."""
+        lines = [
+            "## 📌 Overview",
+            "",
+            "These notes were generated from the video transcript using local AI (no OpenAI key provided).",
+            "",
+            "## 📖 Detailed Notes",
+            "",
+        ]
+        for chunk in summarized_chunks:
+            if not chunk.get("summary"):
+                continue
+            ts = f"{chunk.get('start_ts', '?')} → {chunk.get('end_ts', '?')}"
+            lines.append(f"### ⏱ {ts}")
+            lines.append("")
+            # Each bullet point from the summary becomes a line
+            for part in chunk["summary"].split("\n"):
+                part = part.strip()
+                if part:
+                    lines.append(part)
+            lines.append("")
+
+        lines += [
+            "## 💡 Important Points to Remember",
+            "",
+            "- Review the timestamped sections above for key concepts.",
+            "- Provide an OpenAI API key to get richer, structured AI-generated notes.",
+        ]
+        return "\n".join(lines)
 
     # ── OpenAI Backend ────────────────────────────────────────
 
     def _get_openai_client(self):
         from openai import OpenAI
-        import os
         kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
         if settings.OPENAI_BASE_URL:
             kwargs["base_url"] = settings.OPENAI_BASE_URL
@@ -219,21 +264,31 @@ class Summarizer:
 
     def _summarize_huggingface(self, text: str) -> str:
         try:
+            # BART needs at least a minimal amount of text to summarize
+            clean_text = text.strip()
+            if len(clean_text) < 50:
+                return clean_text  # Too short to summarize; return as-is
+
             model, tokenizer = self._get_hf_pipeline()
             inputs = tokenizer(
-                text,
+                clean_text,
                 max_length=1024,
                 truncation=True,
                 return_tensors="pt"
             )
+            # Clamp min_length to avoid generation errors on short inputs
+            input_len = inputs["input_ids"].shape[1]
+            min_len = min(30, max(10, input_len // 4))
             summary_ids = model.generate(
                 inputs["input_ids"],
                 num_beams=4,
-                min_length=30,
+                min_length=min_len,
                 max_length=256,
                 early_stopping=True
             )
             return tokenizer.decode(summary_ids[0], skip_special_tokens=True)
         except Exception as e:
             logger.error(f"HuggingFace summarization error: {e}")
-            return f"[Summarization failed: {str(e)[:100]}]"
+            # Return a cleaned-up version of the input text as fallback
+            sentences = [s.strip() for s in text.replace("\n", " ").split(".") if len(s.strip()) > 20]
+            return ". ".join(sentences[:5]) + "." if sentences else "[Content not available]"
