@@ -56,21 +56,22 @@ async def upload_and_process(
     if ext not in allowed:
         raise HTTPException(400, f"Unsupported file type: {ext}")
 
-    # Validate file size
-    content = await file.read()
-    size_mb = len(content) / (1024 * 1024)
-    if size_mb > settings.MAX_FILE_SIZE_MB:
-        raise HTTPException(413, f"File too large: {size_mb:.1f} MB (max {settings.MAX_FILE_SIZE_MB} MB)")
-
-    # Save uploaded file
+    # Save uploaded file chunk by chunk to avoid out-of-memory errors
     job_id   = generate_job_id()
     filename = safe_filename(Path(file.filename).stem) + ext
     video_path = os.path.join(settings.UPLOAD_DIR, f"{job_id}{ext}")
     ensure_dir(settings.UPLOAD_DIR)
 
+    size_bytes = 0
     with open(video_path, "wb") as f:
-        f.write(content)
+        while chunk := await file.read(1024 * 1024):  # Read in 1MB chunks
+            size_bytes += len(chunk)
+            if size_bytes > settings.max_file_size_bytes:
+                os.remove(video_path)
+                raise HTTPException(413, f"File too large: max {settings.MAX_FILE_SIZE_MB} MB")
+            f.write(chunk)
 
+    size_mb = size_bytes / (1024 * 1024)
     logger.info(f"Job {job_id}: uploaded '{filename}' ({size_mb:.1f} MB)")
 
     # Override API key if provided via form
