@@ -81,8 +81,8 @@ class NoteGenerator:
         json_dir = os.path.join(self.output_dir, "final_notes")
         ensure_dir(md_dir)
 
-        md_path   = os.path.join(self.output_dir, f"{job_id}.md")
-        json_path = os.path.join(self.output_dir, f"{job_id}.json")
+        md_path   = os.path.join(md_dir, f"{job_id}_notes.md")
+        json_path = os.path.join(json_dir, f"{job_id}_notes.json")
         qz_path   = os.path.join(self.output_dir, f"{job_id}_quiz.json")
         ai_path   = os.path.join(self.output_dir, f"{job_id}_topics.json")
         qa_path   = os.path.join(self.output_dir, f"{job_id}_qa.json")
