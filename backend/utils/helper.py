@@ -151,3 +151,52 @@ def build_error_response(error: str, details: Optional[str] = None) -> Dict:
         "details": details,
         "timestamp": datetime.utcnow().isoformat(),
     }
+
+
+# ── Extractive NLP helpers for API key-free fallback mode ───────────────────
+
+COMMON_STOPWORDS = {
+    "the", "and", "a", "of", "to", "is", "in", "it", "you", "that", "he", "was", "for", "on", "are", "as", "with", "his", "they", "i",
+    "at", "be", "this", "have", "from", "or", "one", "had", "by", "word", "but", "not", "what", "all", "were", "we", "when", "your",
+    "can", "said", "there", "use", "an", "each", "which", "she", "do", "how", "their", "if", "will", "up", "other", "about", "out",
+    "many", "then", "them", "these", "so", "some", "her", "would", "make", "like", "him", "into", "time", "has", "look", "two",
+    "more", "write", "go", "see", "number", "no", "way", "could", "people", "my", "than", "first", "water", "been", "call",
+    "who", "oil", "its", "now", "find", "long", "down", "day", "did", "get", "come", "made", "may", "part", "to", "do", "does",
+    "then", "now", "just", "very", "also", "any", "from", "our", "us", "we"
+}
+
+def extract_sentences(text: str) -> List[str]:
+    """Split text into sentences using simple regex."""
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    return [s.strip() for s in sentences if s.strip()]
+
+def extract_top_words(text: str, n: int = 3) -> List[str]:
+    """Extract top frequent words from the text, ignoring stopwords."""
+    from collections import Counter
+    words = re.findall(r'\b\w+\b', text.lower())
+    words = [w for w in words if w not in COMMON_STOPWORDS and len(w) > 3]
+    word_counts = Counter(words)
+    return [w.capitalize() for w, _ in word_counts.most_common(n)]
+
+def get_key_sentences(text: str, num_sentences: int = 3) -> List[str]:
+    """Score and extract top sentences based on word frequency."""
+    from collections import Counter
+    sentences = extract_sentences(text)
+    if len(sentences) <= num_sentences:
+        return sentences
+    
+    words = re.findall(r'\b\w+\b', text.lower())
+    words = [w for w in words if w not in COMMON_STOPWORDS and len(w) > 2]
+    word_counts = Counter(words)
+    
+    scores = []
+    for s in sentences:
+        s_words = re.findall(r'\b\w+\b', s.lower())
+        score = sum(word_counts.get(w, 0) for w in s_words)
+        if len(s_words) > 0:
+            score = score / (len(s_words) ** 0.5)
+        scores.append((score, s))
+        
+    top_scored = sorted(scores, key=lambda x: x[0], reverse=True)[:num_sentences]
+    top_sentences = [s for _, s in sorted(top_scored, key=lambda x: sentences.index(x[1]))]
+    return top_sentences

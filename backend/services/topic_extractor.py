@@ -115,14 +115,49 @@ class TopicExtractor:
             return self._fallback_topics(text)
 
     def _fallback_topics(self, text: str) -> List[Dict]:
-        """Simple fallback: return a single generic topic."""
-        return [
-            {
-                "topic": "Video Content Overview",
-                "summary": "A summary of the main content discussed in this video.",
-                "key_points": [
-                    "This video covers several educational topics.",
-                    "Process the video with an OpenAI API key for detailed topic extraction.",
-                ],
-            }
-        ]
+        """Generate actual topics using simple extractive NLP fallback."""
+        from backend.utils.helper import extract_sentences, extract_top_words, get_key_sentences
+        
+        sentences = extract_sentences(text)
+        if not sentences:
+            return [
+                {
+                    "topic": "Video Content Overview",
+                    "summary": "No text content available for summary.",
+                    "key_points": []
+                }
+            ]
+
+        # Split text into up to 3 main sections to create 3 topics
+        num_sections = min(3, max(1, len(sentences) // 10))
+        section_size = len(sentences) // num_sections
+        
+        topics = []
+        for i in range(num_sections):
+            start = i * section_size
+            end = (i + 1) * section_size if i < num_sections - 1 else len(sentences)
+            section_sentences = sentences[start:end]
+            section_text = " ".join(section_sentences)
+            
+            top_words = extract_top_words(section_text, 3)
+            if top_words:
+                title = f"Focus on {', '.join(top_words)}"
+            else:
+                title = f"Section {i + 1} Analysis"
+                
+            summary_sentences = get_key_sentences(section_text, 2)
+            summary = " ".join(summary_sentences)
+            
+            key_points = get_key_sentences(section_text, 3)
+            # Make sure we don't repeat the exact summary
+            key_points = [kp for kp in key_points if kp not in summary_sentences]
+            if not key_points:
+                key_points = section_sentences[:3]
+                
+            topics.append({
+                "topic": title,
+                "summary": summary,
+                "key_points": key_points
+            })
+            
+        return topics
