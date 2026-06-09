@@ -4,6 +4,7 @@ backend/services/quiz_generator.py
 Generates multiple-choice quiz questions based on the video transcript.
 """
 
+import os
 import re
 import json
 from typing import Dict, List
@@ -48,7 +49,6 @@ class QuizGenerator:
         combined_text = " ".join([c["text"] for c in chunks])
         text_to_process = combined_text[:15000]
 
-        import os
         has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         if settings.LLM_PROVIDER == "openai" and has_key:
             return self._generate_with_llm(text_to_process, language)
@@ -59,7 +59,6 @@ class QuizGenerator:
     def _generate_with_llm(self, text: str, language: str) -> List[Dict]:
         try:
             from openai import OpenAI
-            import os
             kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL

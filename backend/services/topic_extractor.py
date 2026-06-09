@@ -5,6 +5,7 @@ Extracts key topics from a video transcript and summarizes each one
 in a structured, easy-to-understand format using LLM.
 """
 
+import os
 import re
 from typing import Dict, List
 
@@ -89,7 +90,6 @@ class TopicExtractor:
 
         try:
             from openai import OpenAI
-            import os
             kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL

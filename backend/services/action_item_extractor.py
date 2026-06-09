@@ -5,6 +5,7 @@ Extracts action items, decisions, and follow-up tasks from
 transcript text using LLM-based NLP.
 """
 
+import os
 import re
 from typing import Dict, List
 
@@ -76,7 +77,6 @@ class ActionItemExtractor:
         combined_text = " ".join([c["text"] for c in chunks])
         text_to_process = combined_text[:15000]
 
-        import os
         has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         if settings.LLM_PROVIDER == "openai" and has_key:
             items = self._extract_with_llm(text_to_process, language)
@@ -98,7 +98,6 @@ class ActionItemExtractor:
 
     def _extract_from_chunk(self, chunk: Dict) -> List[Dict]:
         """Try LLM extraction; fall back to regex."""
-        import os
         has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         if settings.LLM_PROVIDER == "openai" and has_key:
             items = self._extract_with_llm(chunk["text"])
@@ -117,7 +116,6 @@ class ActionItemExtractor:
         import json as _json
         try:
             from openai import OpenAI
-            import os
             if self._openai_client is None:
                 kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
                 if settings.OPENAI_BASE_URL:

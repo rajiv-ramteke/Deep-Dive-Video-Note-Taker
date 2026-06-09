@@ -5,6 +5,7 @@ Translates complex JSON structures (topics, highlights, qa_pairs, transcript)
 using OpenAI.
 """
 
+import os
 import json
 from typing import Dict, List, Any
 
@@ -30,7 +31,6 @@ class Translator:
     def _get_client(self):
         if self._openai_client is None:
             from openai import OpenAI
-            import os
             kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL
@@ -42,7 +42,6 @@ class Translator:
         if not data:
             return []
         
-        import os
         has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         if not has_key:
             logger.warning("No OpenAI API key for translation. Returning original data.")
