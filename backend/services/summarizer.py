@@ -168,13 +168,11 @@ class Summarizer:
     # ── OpenAI Backend ────────────────────────────────────────
 
     def _get_openai_client(self):
-        if self._openai_client is None:
-            from openai import OpenAI
-            kwargs = {"api_key": settings.OPENAI_API_KEY}
-            if settings.OPENAI_BASE_URL:
-                kwargs["base_url"] = settings.OPENAI_BASE_URL
-            self._openai_client = OpenAI(**kwargs)
-        return self._openai_client
+        from openai import OpenAI
+        kwargs = {"api_key": settings.OPENAI_API_KEY}
+        if settings.OPENAI_BASE_URL:
+            kwargs["base_url"] = settings.OPENAI_BASE_URL
+        return OpenAI(**kwargs)
 
     def _summarize_openai(self, text: str, language: str) -> str:
         prompt = CHUNK_SUMMARY_PROMPT.format(text=text[:3000], language=language)
@@ -193,9 +191,10 @@ class Summarizer:
                     {"role": "user", "content": prompt},
                 ],
                 temperature=0.3,
-                max_tokens=1024,
+                max_tokens=2048,
             )
-            return response.choices[0].message.content.strip()
+            content = response.choices[0].message.content
+            return content.strip() if content else ""
         except Exception as e:
             logger.error(f"OpenAI API error: {e}")
             return f"[Summarization failed: {str(e)[:100]}]"

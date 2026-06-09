@@ -39,7 +39,7 @@ class QuizGenerator:
     """
 
     def __init__(self):
-        self._openai_client = None
+        pass  # No cached client — we create a fresh one per call
 
     def generate_quiz(self, chunks: List[Dict], language: str = "English") -> List[Dict]:
         """
@@ -57,20 +57,22 @@ class QuizGenerator:
     def _generate_with_llm(self, text: str, language: str) -> List[Dict]:
         try:
             from openai import OpenAI
-            if self._openai_client is None:
-                kwargs = {"api_key": settings.OPENAI_API_KEY}
-                if settings.OPENAI_BASE_URL:
-                    kwargs["base_url"] = settings.OPENAI_BASE_URL
-                self._openai_client = OpenAI(**kwargs)
+            kwargs = {"api_key": settings.OPENAI_API_KEY}
+            if settings.OPENAI_BASE_URL:
+                kwargs["base_url"] = settings.OPENAI_BASE_URL
+            client = OpenAI(**kwargs)
 
             prompt = QUIZ_PROMPT.format(text=text, language=language)
-            response = self._openai_client.chat.completions.create(
+            response = client.chat.completions.create(
                 model=settings.OPENAI_MODEL,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.3,
                 max_tokens=1500,
             )
-            raw = response.choices[0].message.content.strip()
+            raw = response.choices[0].message.content
+            if not raw:
+                return self._fallback_quiz()
+            raw = raw.strip()
             raw = re.sub(r"```(?:json)?", "", raw).strip().rstrip("```").strip()
             items = json.loads(raw)
             return items if isinstance(items, list) else []

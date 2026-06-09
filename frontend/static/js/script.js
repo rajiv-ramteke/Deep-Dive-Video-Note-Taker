@@ -22,7 +22,6 @@ const progressLabel    = document.getElementById('progress-label');
 const progressPct      = document.getElementById('progress-pct');
 const resultsSection   = document.getElementById('results-section');
 const notesOutput      = document.getElementById('notes-output');
-const highlightsOutput = document.getElementById('highlights-output');
 const actionsOutput    = document.getElementById('actions-output');
 const transcriptOutput = document.getElementById('transcript-output');
 const qaOutput         = document.getElementById('qa-output');

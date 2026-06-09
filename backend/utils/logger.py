@@ -4,15 +4,16 @@ backend/utils/logger.py
 Loguru-based logging configuration for the entire application.
 """
 
+import io
 import sys
 from loguru import logger as _logger
 
-# Remove default handler
-_logger.remove()
+# Re-wrap stdout with UTF-8 so emoji in log messages don't crash on Windows cp1252
+_stdout_utf8 = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace", line_buffering=True)
 
 # Console handler — coloured, human-readable
 _logger.add(
-    sys.stdout,
+    _stdout_utf8,
     format=(
         "<green>{time:YYYY-MM-DD HH:mm:ss}</green> | "
         "<level>{level: <8}</level> | "
@@ -20,7 +21,7 @@ _logger.add(
         "<level>{message}</level>"
     ),
     level="DEBUG",
-    colorize=True,
+    colorize=False,  # disable ANSI colours when redirecting to UTF-8 wrapper
 )
 
 # File handler — rotating log file
