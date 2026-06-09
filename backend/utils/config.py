@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     HF_SUMMARIZATION_MODEL: str = "facebook/bart-large-cnn"
 
     # ── Whisper ASR ───────────────────────────────────────────
-    WHISPER_MODEL: Literal["tiny", "base", "small", "medium", "large"] = "base"
+    WHISPER_MODEL: Literal["tiny", "base", "small", "medium", "large"] = "tiny"
     WHISPER_DEVICE: Literal["cpu", "cuda"] = "cpu"
 
     # ── Text Processing ───────────────────────────────────────

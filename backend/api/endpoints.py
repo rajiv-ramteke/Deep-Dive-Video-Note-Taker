@@ -102,7 +102,7 @@ async def upload_and_process(
     )
 
 
-async def _run_pipeline(job_id: str, video_path: str, filename: str):
+def _run_pipeline(job_id: str, video_path: str, filename: str):
     """Background task: runs the full AI pipeline for a given job."""
     from backend.services.audio_extractor      import AudioExtractor
     from backend.services.whisper_transcriber  import WhisperTranscriber
