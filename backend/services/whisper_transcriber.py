@@ -93,14 +93,21 @@ class WhisperTranscriber:
         """Lazy-load the Whisper model (cached after first call)."""
         if self._model is None:
             import whisper
+            import torch
+            
+            # CRITICAL FIX for Render Free Tier: 
+            # PyTorch tries to use all CPU cores by default, which causes the 
+            # server to completely freeze and hang at 20% on a 0.1 CPU limit.
+            torch.set_num_threads(1)
+            
             self._patch_ffmpeg_path()
-            logger.info(f"Loading Whisper model '{settings.WHISPER_MODEL}'...")
+            logger.info(f"Loading Whisper model '{settings.WHISPER_MODEL}' with 1 CPU thread...")
             self._model = whisper.load_model(
                 settings.WHISPER_MODEL,
                 device=settings.WHISPER_DEVICE,
                 download_root="models/whisper",
             )
-            logger.info("Whisper model loaded ✅")
+            logger.info("Whisper model loaded ✅.")
         return self._model
 
     @staticmethod
