@@ -42,7 +42,7 @@ class Settings(BaseSettings):
 
     # ── Application ───────────────────────────────────────────
     APP_HOST: str = "0.0.0.0"
-    APP_PORT: int = 8000
+    APP_PORT: int = 7860
     DEBUG: bool = True
 
     # ── File Storage ──────────────────────────────────────────
