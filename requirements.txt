@@ -10,7 +10,7 @@ pydantic
 pydantic-settings
 
 # AI / ML - Speech Recognition
-openai-whisper
+faster-whisper
 torch
 torchaudio
 

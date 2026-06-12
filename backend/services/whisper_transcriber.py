@@ -83,32 +83,56 @@ class WhisperTranscriber:
 
     def _transcribe_local(self, audio_path: str, job_id: str) -> Dict:
         model = self._get_model()
-        raw = model.transcribe(
+        segments, info = model.transcribe(
             audio_path,
-            verbose=False,
+            beam_size=5,
             word_timestamps=True,
-            task="transcribe",
-            fp16=False,
         )
-        return self._parse_result(raw)
+        
+        segments_list = []
+        for i, seg in enumerate(segments):
+            segments_list.append({
+                "id": i,
+                "start": seg.start,
+                "end": seg.end,
+                "start_ts": seconds_to_timestamp(seg.start),
+                "end_ts": seconds_to_timestamp(seg.end),
+                "text": seg.text.strip(),
+                "words": [
+                    {
+                        "word": w.word.strip(),
+                        "start": w.start,
+                        "end": w.end,
+                    } for w in getattr(seg, "words", []) if w
+                ]
+            })
+            
+        full_text = " ".join(s["text"] for s in segments_list)
+        return {
+            "text": full_text,
+            "segments": segments_list,
+            "language": info.language if hasattr(info, "language") else "en",
+            "duration": info.duration if hasattr(info, "duration") else (segments_list[-1]["end"] if segments_list else 0),
+        }
 
     # ── Private Methods ───────────────────────────────────────
 
     def _get_model(self):
         """Lazy-load the Whisper model (cached after first call)."""
         if self._model is None:
-            import whisper
-            import torch
+            from faster_whisper import WhisperModel
             
-            # Let PyTorch use all available CPU cores for faster transcription
             self._patch_ffmpeg_path()
-            logger.info(f"Loading local Whisper model '{settings.WHISPER_MODEL}'...")
-            self._model = whisper.load_model(
+            logger.info(f"Loading local Faster-Whisper model '{settings.WHISPER_MODEL}'...")
+            
+            compute_type = "int8" if settings.WHISPER_DEVICE == "cpu" else "float16"
+            self._model = WhisperModel(
                 settings.WHISPER_MODEL,
                 device=settings.WHISPER_DEVICE,
-                download_root="models/whisper",
+                compute_type=compute_type,
+                download_root="models/whisper"
             )
-            logger.info("Whisper model loaded ✅.")
+            logger.info("Faster-Whisper model loaded ✅.")
         return self._model
 
     @staticmethod
