@@ -85,6 +85,7 @@ class WhisperTranscriber:
             verbose=False,
             word_timestamps=True,
             task="transcribe",
+            fp16=False,
         )
         return self._parse_result(raw)
 
@@ -96,13 +97,9 @@ class WhisperTranscriber:
             import whisper
             import torch
             
-            # CRITICAL FIX for Render Free Tier: 
-            # PyTorch tries to use all CPU cores by default, which causes the 
-            # server to completely freeze and hang at 20% on a 0.1 CPU limit.
-            torch.set_num_threads(1)
-            
+            # Let PyTorch use all available CPU cores for faster transcription
             self._patch_ffmpeg_path()
-            logger.info(f"Loading Whisper model '{settings.WHISPER_MODEL}' with 1 CPU thread...")
+            logger.info(f"Loading local Whisper model '{settings.WHISPER_MODEL}'...")
             self._model = whisper.load_model(
                 settings.WHISPER_MODEL,
                 device=settings.WHISPER_DEVICE,
