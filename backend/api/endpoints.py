@@ -174,7 +174,7 @@ def _run_pipeline(job_id: str, video_path: str, filename: str):
 
         update(92, "Mapping timestamps and chapters...")
         from backend.services.timestamp_mapper import TimestampMapper
-        ts_mapper = TimestampMapper(api_key=api_key)
+        ts_mapper = TimestampMapper()
         highlights = ts_mapper.map_timestamps(summarized_chunks)
         chapters = ts_mapper.generate_chapter_markers(highlights)
 
