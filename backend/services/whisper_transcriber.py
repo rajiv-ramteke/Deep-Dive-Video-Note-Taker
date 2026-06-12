@@ -38,8 +38,11 @@ class WhisperTranscriber:
 
         logger.info(f"Starting Whisper transcription...")
         
-        # Check if we can use the much faster and lighter OpenAI API
-        use_api = settings.LLM_PROVIDER == "openai" and bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        # Only use OpenAI Whisper API for real OpenAI endpoints (not Nvidia/custom)
+        base_url = settings.OPENAI_BASE_URL or ""
+        is_real_openai = not base_url or "openai.com" in base_url
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        use_api = settings.LLM_PROVIDER == "openai" and has_key and is_real_openai
         
         if use_api:
             logger.info("Using OpenAI Whisper API for transcription (fast & memory efficient).")
