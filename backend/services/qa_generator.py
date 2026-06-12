@@ -36,7 +36,8 @@ class QAGenerator:
     Generates Q&A pairs from transcript chunks.
     """
 
-    def __init__(self):
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key
         pass  # No cached client — fresh one per call
 
     # ── Public API ────────────────────────────────────────────
@@ -69,7 +70,7 @@ class QAGenerator:
         max_chars = 15000
         text_to_process = combined_text[:max_chars]
 
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         if settings.LLM_PROVIDER == "openai" and has_key:
             qa_pairs = self._generate_with_llm(text_to_process, language)
             all_qa.extend(qa_pairs)
@@ -86,7 +87,7 @@ class QAGenerator:
         import json as _json
         try:
             from openai import OpenAI
-            kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
+            kwargs = {"api_key": self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL
             client = OpenAI(**kwargs)

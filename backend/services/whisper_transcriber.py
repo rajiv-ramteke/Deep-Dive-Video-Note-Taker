@@ -21,7 +21,8 @@ class WhisperTranscriber:
     Produces full transcript text + word/segment-level timestamps.
     """
 
-    def __init__(self):
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key
         self._model = None
         self.output_dir = settings.TRANSCRIPT_DIR
         ensure_dir(self.output_dir)
@@ -38,7 +39,7 @@ class WhisperTranscriber:
         logger.info(f"Starting Whisper transcription...")
         
         # Check if we can use the much faster and lighter OpenAI API
-        use_api = settings.LLM_PROVIDER == "openai" and bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        use_api = settings.LLM_PROVIDER == "openai" and bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         
         if use_api:
             logger.info("Using OpenAI Whisper API for transcription (fast & memory efficient).")
@@ -62,7 +63,7 @@ class WhisperTranscriber:
 
     def _transcribe_api(self, audio_path: str, job_id: str) -> Dict:
         from openai import OpenAI
-        client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        client = OpenAI(api_key=self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         
         # OpenAI API has a 25MB limit. Since we convert to 16kHz mono, this usually allows up to ~1.5 hours of audio.
         with open(audio_path, "rb") as audio_file:

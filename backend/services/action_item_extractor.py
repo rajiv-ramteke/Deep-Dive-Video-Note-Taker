@@ -53,7 +53,8 @@ class ActionItemExtractor:
     Uses LLM when available; falls back to regex heuristics.
     """
 
-    def __init__(self):
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key
         self._openai_client = None
 
     # ── Public API ────────────────────────────────────────────

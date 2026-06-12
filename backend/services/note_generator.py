@@ -38,6 +38,9 @@ class NoteGenerator:
         quiz: List[Dict],
         topics: List[Dict] = None,
         qa_pairs: List[Dict] = None,
+        action_items: List[Dict] = None,
+        highlights: List[Dict] = None,
+        chapters: List[Dict] = None,
         duration: Optional[float] = None,
     ) -> Dict:
         """
@@ -61,6 +64,8 @@ class NoteGenerator:
             quiz=quiz,
             topics=topics or [],
             qa_pairs=qa_pairs,
+            action_items=action_items or [],
+            chapters=chapters or [],
             duration=duration,
         )
 
@@ -73,6 +78,9 @@ class NoteGenerator:
             quiz=quiz,
             topics=topics or [],
             qa_pairs=qa_pairs,
+            action_items=action_items or [],
+            highlights=highlights or [],
+            chapters=chapters or [],
             duration=duration,
         )
 
@@ -114,9 +122,12 @@ class NoteGenerator:
         quiz: List[Dict],
         topics: List[Dict],
         qa_pairs: List[Dict],
+        action_items: List[Dict],
+        chapters: List[Dict],
         duration: Optional[float],
     ) -> str:
-        now = datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+        from datetime import timezone
+        now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
         dur_str = format_duration(duration) if duration else "Unknown"
         lang = transcript.get("language", "en").upper()
         word_count = len(transcript.get("text", "").split())
@@ -179,7 +190,27 @@ class NoteGenerator:
                 lines.append("")
             lines += ["---", ""]
 
+        # Action Items
+        if action_items:
+            lines += ["## ✅ Action Items", ""]
+            for action in action_items:
+                lines.append(f"- [ ] **{action.get('task', 'Task')}**")
+                meta = []
+                if action.get('assignee'): meta.append(f"Assignee: {action['assignee']}")
+                if action.get('deadline'): meta.append(f"Due: {action['deadline']}")
+                if meta:
+                    lines.append(f"  > _{' | '.join(meta)}_")
+            lines += ["", "---", ""]
 
+        # Chapters
+        if chapters:
+            lines += ["## 🕒 Chapters", ""]
+            for chapter in chapters:
+                lines.append(f"### {chapter.get('timestamp', '')} - {chapter.get('title', 'Chapter')}")
+                for hl in chapter.get('highlights', []):
+                    lines.append(f"- **{hl.get('timestamp', '')}**: {hl.get('title', '')}")
+                lines.append("")
+            lines += ["---", ""]
 
         # Full Transcript (collapsible)
         lines += [
@@ -214,6 +245,9 @@ class NoteGenerator:
             "quiz":             kwargs.get("quiz", []),
             "topics":           kwargs.get("topics", []),
             "qa_pairs":         kwargs.get("qa_pairs", []),
+            "action_items":     kwargs.get("action_items", []),
+            "highlights":       kwargs.get("highlights", []),
+            "chapters":         kwargs.get("chapters", []),
             "chunk_summaries": [
                 {
                     "chunk_id": c["chunk_id"],

@@ -53,7 +53,8 @@ class TopicExtractor:
     Uses OpenAI when available; falls back to a basic heuristic.
     """
 
-    def __init__(self):
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key
         pass  # No cached client — fresh one per call
 
     # ── Public API ────────────────────────────────────────────
@@ -72,7 +73,8 @@ class TopicExtractor:
         combined_text = " ".join([c["text"] for c in chunks])
         text_to_process = combined_text[:15000]
 
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        logger.info("Extracting structured topics...")
         if settings.LLM_PROVIDER == "openai" and has_key:
             topics = self._extract_with_llm(text_to_process, language)
         else:
@@ -90,7 +92,7 @@ class TopicExtractor:
 
         try:
             from openai import OpenAI
-            kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
+            kwargs = {"api_key": self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL
             client = OpenAI(**kwargs)

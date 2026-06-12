@@ -65,7 +65,8 @@ class Summarizer:
     Supports OpenAI GPT (API) and HuggingFace BART (local).
     """
 
-    def __init__(self):
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key
         self._openai_client = None
         self._hf_pipeline = None
 
@@ -102,7 +103,7 @@ class Summarizer:
         Returns:
             Markdown-formatted final notes string.
         """
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         logger.info("Generating final structured notes...")
 
         if settings.LLM_PROVIDER == "openai" and has_key:
@@ -124,7 +125,7 @@ class Summarizer:
         """
         Translates the final notes into the specified target language.
         """
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         logger.info(f"Translating notes to {language}...")
 
         if settings.LLM_PROVIDER == "openai" and has_key:
@@ -146,7 +147,7 @@ class Summarizer:
         Answers a user's question using video context + general AI knowledge
         for a more detailed and educational response.
         """
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         logger.info(f"Answering query: '{query}'")
 
         if settings.LLM_PROVIDER == "openai" and has_key:
@@ -178,7 +179,7 @@ class Summarizer:
 
     def _summarize_text(self, text: str, language: str) -> str:
         """Dispatch to the configured LLM backend."""
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         if settings.LLM_PROVIDER == "openai" and has_key:
             return self._summarize_openai(text, language)
         else:
@@ -219,7 +220,7 @@ class Summarizer:
 
     def _get_openai_client(self):
         from openai import OpenAI
-        kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
+        kwargs = {"api_key": self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
         if settings.OPENAI_BASE_URL:
             kwargs["base_url"] = settings.OPENAI_BASE_URL
         return OpenAI(**kwargs)

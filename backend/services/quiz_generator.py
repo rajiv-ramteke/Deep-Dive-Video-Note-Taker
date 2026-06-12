@@ -39,7 +39,8 @@ class QuizGenerator:
     Generates interactive quiz questions from transcripts.
     """
 
-    def __init__(self):
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key
         pass  # No cached client — we create a fresh one per call
 
     def generate_quiz(self, chunks: List[Dict], language: str = "English") -> List[Dict]:
@@ -49,22 +50,23 @@ class QuizGenerator:
         combined_text = " ".join([c["text"] for c in chunks])
         text_to_process = combined_text[:15000]
 
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        logger.info("Generating quiz from transcript...")
         if settings.LLM_PROVIDER == "openai" and has_key:
-            return self._generate_with_llm(text_to_process, language)
+            return self._generate_openai(text_to_process, language)
         else:
             logger.warning("No OpenAI key. Generating local fallback quiz.")
             return self._fallback_quiz(text_to_process)
 
-    def _generate_with_llm(self, text: str, language: str) -> List[Dict]:
-        try:
-            from openai import OpenAI
-            kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
-            if settings.OPENAI_BASE_URL:
-                kwargs["base_url"] = settings.OPENAI_BASE_URL
-            client = OpenAI(**kwargs)
+    def _generate_openai(self, text: str, language: str) -> List[Dict]:
+        from openai import OpenAI
+        kwargs = {"api_key": self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
+        if settings.OPENAI_BASE_URL:
+            kwargs["base_url"] = settings.OPENAI_BASE_URL
+        client = OpenAI(**kwargs)
 
-            prompt = QUIZ_PROMPT.format(text=text, language=language)
+        prompt = QUIZ_PROMPT.format(text=text, language=language)
+        try:
             response = client.chat.completions.create(
                 model=settings.OPENAI_MODEL,
                 messages=[{"role": "user", "content": prompt}],

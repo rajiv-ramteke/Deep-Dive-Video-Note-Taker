@@ -25,13 +25,14 @@ Input JSON:
 """
 
 class Translator:
-    def __init__(self):
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key
         self._openai_client = None
 
     def _get_client(self):
         if self._openai_client is None:
             from openai import OpenAI
-            kwargs = {"api_key": os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
+            kwargs = {"api_key": self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY}
             if settings.OPENAI_BASE_URL:
                 kwargs["base_url"] = settings.OPENAI_BASE_URL
             self._openai_client = OpenAI(**kwargs)
@@ -42,7 +43,7 @@ class Translator:
         if not data:
             return []
         
-        has_key = bool(os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
+        has_key = bool(self.api_key or os.environ.get("OPENAI_API_KEY") or settings.OPENAI_API_KEY)
         if not has_key:
             logger.warning("No OpenAI API key for translation. Returning original data.")
             return data

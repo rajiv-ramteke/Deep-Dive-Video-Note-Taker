@@ -74,10 +74,8 @@ async def upload_and_process(
     size_mb = size_bytes / (1024 * 1024)
     logger.info(f"Job {job_id}: uploaded '{filename}' ({size_mb:.1f} MB)")
 
-    # Override API key if provided via form
-    if openai_key:
-        os.environ["OPENAI_API_KEY"] = openai_key
-        settings.OPENAI_API_KEY = openai_key
+    # Store API key in job info instead of global os.environ
+    # to prevent race conditions between concurrent requests.
 
     # Register job
     _jobs[job_id] = {
@@ -88,6 +86,7 @@ async def upload_and_process(
         "message":        "Queued for processing",
         "video_path":     video_path,
         "notes_language": notes_language or "English",
+        "openai_key":     openai_key,
         "result":         None,
         "error":          None,
     }
@@ -126,8 +125,10 @@ def _run_pipeline(job_id: str, video_path: str, filename: str):
         audio_path = extractor.extract(video_path, job_id)
         duration   = extractor.get_video_duration(video_path)
 
+        api_key = _jobs[job_id].get("openai_key")
+
         update(20, "Transcribing audio with Whisper ASR...")
-        transcriber = WhisperTranscriber()
+        transcriber = WhisperTranscriber(api_key=api_key)
         transcript  = transcriber.transcribe(audio_path, job_id)
 
         update(40, "Chunking transcript...")
@@ -140,7 +141,7 @@ def _run_pipeline(job_id: str, video_path: str, filename: str):
         rag.save_index()
 
         update(60, "Summarizing chunks with LLM...")
-        summarizer = Summarizer()
+        summarizer = Summarizer(api_key=api_key)
 
         # Language: prefer the user-selected language; fall back to auto-detected transcript language
         user_language  = _jobs[job_id].get("notes_language", "English")
@@ -159,16 +160,27 @@ def _run_pipeline(job_id: str, video_path: str, filename: str):
         final_notes = summarizer.generate_final_notes(summarized_chunks, language=language)
 
         update(82, "Generating interactive quiz...")
-        q_gen = QuizGenerator()
+        q_gen = QuizGenerator(api_key=api_key)
         quiz_data = q_gen.generate_quiz(chunks, language=language)
 
         update(90, "Extracting topic summaries...")
-        topic_ext = TopicExtractor()
+        topic_ext = TopicExtractor(api_key=api_key)
         topics    = topic_ext.extract(chunks, language=language)
+
+        update(91, "Extracting action items...")
+        from backend.services.action_item_extractor import ActionItemExtractor
+        action_ext = ActionItemExtractor(api_key=api_key)
+        action_items = action_ext.extract(chunks, language=language)
+
+        update(92, "Mapping timestamps and chapters...")
+        from backend.services.timestamp_mapper import TimestampMapper
+        ts_mapper = TimestampMapper(api_key=api_key)
+        highlights = ts_mapper.map_timestamps(summarized_chunks)
+        chapters = ts_mapper.generate_chapter_markers(highlights)
 
         update(93, "Generating Q&A pairs...")
         from backend.services.qa_generator import QAGenerator
-        qa_gen = QAGenerator()
+        qa_gen = QAGenerator(api_key=api_key)
         
         qa_pairs = qa_gen.generate_qa(chunks, language=language)
 
@@ -183,6 +195,9 @@ def _run_pipeline(job_id: str, video_path: str, filename: str):
             quiz=quiz_data,
             topics=topics,
             qa_pairs=qa_pairs,
+            action_items=action_items,
+            highlights=highlights,
+            chapters=chapters,
 
             duration=duration,
         )
@@ -311,12 +326,13 @@ async def translate_notes_endpoint(req: TranslateRequest):
         raise HTTPException(404, "No notes found to translate.")
 
     try:
-        summarizer = Summarizer()
+        api_key = job.get("openai_key")
+        summarizer = Summarizer(api_key=api_key)
         translated_markdown = summarizer.translate_notes(markdown_notes, req.language)
         
         # New: Translate all structured data so the whole UI flips
         from backend.services.translator import Translator
-        translator = Translator()
+        translator = Translator(api_key=api_key)
         
         notes_data = job.get("result", {})
         
@@ -385,7 +401,8 @@ async def query_transcript(req: QueryRequest):
         context_parts = [f"[{r.get('start_ts', '')} → {r.get('end_ts', '')}]: {r.get('text', '')}" for r in results]
         context = "\n\n".join(context_parts)
         try:
-            summarizer = Summarizer()
+            api_key = job.get("openai_key")
+            summarizer = Summarizer(api_key=api_key)
             answer = summarizer.answer_question(req.query, context)
         except Exception as e:
             logger.error(f"Error generating answer for query '{req.query}': {e}")
