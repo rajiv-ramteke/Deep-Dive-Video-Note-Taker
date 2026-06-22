@@ -1,3 +1,13 @@
+---
+title: Deep Dive Video Note Taker
+emoji: 🎥
+colorFrom: purple
+colorTo: blue
+sdk: docker
+pinned: false
+app_port: 7860
+---
+
 # Deep-Dive Video Note Taker: An AI-Powered System for Automated Video Summarization, Note Generation, and Retrieval-Augmented Q&A
 
 **Author:** Rajiv Ramteke
