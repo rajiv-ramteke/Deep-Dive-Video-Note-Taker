@@ -1,0 +1,187 @@
+============================================================
+  Deep-Dive Video Note Taker  v1.0.0
+  HOW TO RUN THE PROJECT  --  Step-by-Step Guide
+============================================================
+
+
+STEP 1 : Install Python 3.10+
+-------------------------------
+  Download from : https://www.python.org/downloads/
+  During install, CHECK the box "Add Python to PATH"
+  Verify after install by opening CMD and typing:
+      python --version
+
+
+STEP 2 : Install FFmpeg
+--------------------------
+  Download from : https://ffmpeg.org/download.html
+  Extract the zip and add the "bin" folder to your system PATH
+  Verify by opening CMD and typing:
+      ffmpeg -version
+
+
+STEP 3 : Download / Clone the Project
+----------------------------------------
+  Open CMD and run:
+      git clone https://github.com/rajiv-ramteke/Deep-Dive-Video-Note-Taker.git
+      cd Deep-Dive-Video-Note-Taker
+
+  OR simply open the project folder if you already have it:
+      cd "C:\Users\rajiv\OneDrive\Desktop\one page report\Deep-Dive-Video-Note-Taker"
+
+
+STEP 4 : Create a Virtual Environment
+----------------------------------------
+  Run this command inside the project folder:
+      python -m venv venv
+
+
+STEP 5 : Activate the Virtual Environment
+-------------------------------------------
+  On Windows CMD:
+      venv\Scripts\activate
+
+  You will see (venv) appear at the start of the line.
+  This means the virtual environment is active.
+
+
+STEP 6 : Install All Dependencies
+------------------------------------
+  Run:
+      pip install --upgrade pip
+      pip install -r requirements.txt
+
+  NOTE: This downloads large AI libraries (PyTorch, Whisper,
+        Transformers, FAISS, etc.) and may take 5-15 minutes.
+
+
+STEP 7 : Set Up the .env Configuration File
+---------------------------------------------
+  Copy the example config:
+      copy .env.example .env
+
+  Open the new ".env" file in Notepad or VS Code.
+  Edit these important lines:
+
+      OPENAI_API_KEY=sk-your-key-here    <-- Paste your OpenAI key here
+      OPENAI_MODEL=gpt-3.5-turbo
+      LLM_PROVIDER=openai
+      WHISPER_MODEL=base
+      WHISPER_DEVICE=cpu
+      APP_PORT=7860
+
+  If you do NOT have an OpenAI key, leave it blank:
+      OPENAI_API_KEY=
+      LLM_PROVIDER=huggingface
+
+  Save and close the file.
+
+
+STEP 8 : Create Required Folders
+-----------------------------------
+  Run these commands (copy-paste all at once):
+      mkdir data\videos
+      mkdir data\audio
+      mkdir data\transcripts
+      mkdir data\summaries
+      mkdir data\embeddings
+      mkdir outputs\final_notes
+      mkdir outputs\timestamps
+      mkdir outputs\action_items
+      mkdir outputs\reports
+      mkdir models\whisper
+      mkdir models\embedding_model
+      mkdir logs
+
+
+STEP 9 : Start the Application
+---------------------------------
+  Run:
+      python main.py
+
+  You should see:
+      ============================================================
+         Deep-Dive Video Note Taker  v1.0.0
+      ============================================================
+        Host : 0.0.0.0
+        Port : 7860
+      ============================================================
+
+  The server is now running!
+
+
+STEP 10 : Open the Web Dashboard
+-----------------------------------
+  Open your browser and go to:
+      http://localhost:7860
+
+  Also available:
+      http://localhost:7860/docs   --> Swagger API docs
+      http://localhost:7860/redoc  --> ReDoc API docs
+
+
+STEP 11 : Use the App
+-----------------------
+  1. Click "Upload Video" on the dashboard
+  2. Select any video file (MP4, AVI, MOV, MKV, etc.)
+     OR an audio file (MP3, WAV, etc.)
+  3. Wait for transcription to finish
+  4. Your structured notes will appear automatically
+  5. Use the Q&A box to ask questions about the video
+  6. Click "Generate Quiz" to test your understanding
+  7. View Action Items and Topics tabs for more insights
+
+
+STEP 12 : Stop the Server
+----------------------------
+  Press  Ctrl + C  in the terminal window.
+
+  To deactivate the virtual environment:
+      deactivate
+
+
+============================================================
+  WINDOWS ONE-CLICK SHORTCUT (Skip Steps 4-9)
+============================================================
+
+  If you just want to run it quickly on Windows:
+
+  Double-click  "start.bat"  in the project folder.
+
+  It does everything automatically:
+    - Creates the virtual environment
+    - Installs all packages
+    - Creates the .env file
+    - Creates all folders
+    - Starts the server
+
+
+============================================================
+  QUICK TROUBLESHOOTING
+============================================================
+
+  Problem : "python is not recognized"
+  Fix     : Reinstall Python and check "Add to PATH"
+
+  Problem : "pip install" fails or is very slow
+  Fix     : Try:  pip install -r requirements.txt --timeout 120
+
+  Problem : FFmpeg error during video upload
+  Fix     : Install FFmpeg and restart your CMD terminal
+
+  Problem : Out of memory with local model
+  Fix     : In .env, change  WHISPER_MODEL=tiny
+
+  Problem : Notes quality is poor (no OpenAI key)
+  Fix     : Add your OpenAI key to .env and set
+                LLM_PROVIDER=openai
+
+  Problem : Port 7860 already in use
+  Fix     : In .env, change  APP_PORT=8080
+            Then open  http://localhost:8080
+
+============================================================
+  AUTHOR  : Rajiv Ramteke
+  VERSION : 1.0.0
+  LICENSE : MIT
+============================================================

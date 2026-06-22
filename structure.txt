@@ -1,0 +1,205 @@
+============================================================
+  Deep-Dive Video Note Taker  v1.0.0
+  COMPLETE PROJECT FILE STRUCTURE
+============================================================
+
+Deep-Dive-Video-Note-Taker/                    <-- ROOT FOLDER
+|
+|-- app.py                                      [Python]  FastAPI main application & server setup
+|-- main.py                                     [Python]  Entry point to launch the server (run this)
+|-- start.bat                                   [Batch]   Windows one-click launcher script
+|-- requirements.txt                            [Text]    All Python package dependencies
+|-- .env                                        [Config]  Your actual environment variables (private)
+|-- .env.example                                [Config]  Template for environment variables
+|-- .gitignore                                  [Git]     Files/folders excluded from Git
+|-- pytest.ini                                  [Config]  pytest configuration settings
+|-- Dockerfile                                  [Docker]  Docker image build instructions
+|-- docker-compose.yml                          [Docker]  Multi-container Docker setup
+|-- vercel.json                                 [Config]  Vercel deployment configuration
+|-- notes.txt                                   [Text]    How to run the project (step-by-step)
+|-- structure.txt                               [Text]    This file - full project structure
+|
+|
+|-- backend/                                    <-- BACKEND (All AI/API logic)
+|   |-- __init__.py
+|   |
+|   |-- api/                                    <-- REST API Layer
+|   |   |-- __init__.py
+|   |   |-- routes.py                           [Python]  Registers all API routers with FastAPI
+|   |   |-- endpoints.py                        [Python]  All REST API endpoint handlers
+|   |
+|   |-- services/                               <-- Core AI Pipeline Services
+|   |   |-- __init__.py
+|   |   |-- whisper_transcriber.py              [Python]  Speech-to-text (OpenAI Whisper API + local)
+|   |   |-- audio_extractor.py                  [Python]  Extracts audio from video files (FFmpeg)
+|   |   |-- text_chunker.py                     [Python]  Splits transcripts into overlapping chunks
+|   |   |-- summarizer.py                       [Python]  Generates notes (OpenAI GPT / BART fallback)
+|   |   |-- note_generator.py                   [Python]  Orchestrates full note generation pipeline
+|   |   |-- rag_pipeline.py                     [Python]  Semantic search Q&A (FAISS + SentenceTransformers)
+|   |   |-- qa_generator.py                     [Python]  Generates Q&A pairs from transcript
+|   |   |-- quiz_generator.py                   [Python]  Creates multiple-choice quiz questions
+|   |   |-- action_item_extractor.py            [Python]  Detects tasks and action items in transcript
+|   |   |-- topic_extractor.py                  [Python]  Identifies main topics discussed in video
+|   |   |-- timestamp_mapper.py                 [Python]  Maps notes/concepts to video timestamps
+|   |   |-- translator.py                       [Python]  Translates notes to target language
+|   |
+|   |-- utils/                                  <-- Utility / Helper Modules
+|   |   |-- __init__.py
+|   |   |-- config.py                           [Python]  Pydantic settings (reads from .env file)
+|   |   |-- logger.py                           [Python]  Loguru logging setup
+|   |   |-- helper.py                           [Python]  Shared helpers (timestamps, JSON I/O, etc.)
+|   |
+|   |-- database/                               <-- Data Persistence Layer
+|       |-- __init__.py
+|       |-- faiss_db.py                         [Python]  FAISS vector database operations
+|       |-- vector_store.py                     [Python]  Vector store abstraction layer
+|
+|
+|-- frontend/                                   <-- FRONTEND (Web Dashboard)
+|   |-- app_frontend.py                         [Python]  Frontend helper / Gradio interface (alt UI)
+|   |
+|   |-- templates/                              <-- HTML Templates (Jinja2)
+|   |   |-- index.html                          [HTML]    Main web dashboard page
+|   |
+|   |-- static/                                 <-- Static Assets
+|       |-- css/
+|       |   |-- style.css                       [CSS]     Full dashboard styling (24 KB)
+|       |
+|       |-- js/
+|       |   |-- script.js                       [JS]      Frontend logic & API calls (21 KB)
+|       |
+|       |-- uploads/                            <-- Temporary uploaded file preview storage
+|
+|
+|-- data/                                       <-- DATA STORAGE (auto-created on first run)
+|   |-- videos/                                 Uploaded raw video files
+|   |-- audio/                                  Extracted audio files (.wav 16kHz mono)
+|   |-- transcripts/                            Whisper transcripts saved as JSON per job
+|   |-- summaries/                              Chunk-level summaries saved as JSON
+|   |-- embeddings/                             FAISS index files (.index + _meta.json)
+|
+|
+|-- outputs/                                    <-- GENERATED OUTPUTS (auto-created)
+|   |-- final_notes/                            Final Markdown notes per video (.md files)
+|   |-- timestamps/                             Timestamp-mapped highlights per video
+|   |-- action_items/                           Extracted action items per video
+|   |-- qa_pairs/                               Generated Q&A pairs per video (JSON)
+|   |-- reports/                                Full analysis reports per video
+|   |
+|   |-- [job-id].json                           Full processing result (notes + metadata)
+|   |-- [job-id].md                             Structured Markdown notes
+|   |-- [job-id]_qa.json                        Q&A pairs for the video
+|   |-- [job-id]_quiz.json                      Multiple-choice quiz questions
+|   |-- [job-id]_topics.json                    Extracted topics list
+|
+|
+|-- models/                                     <-- AI MODEL WEIGHTS (auto-downloaded)
+|   |-- whisper/                                Local Faster-Whisper model files
+|   |-- summarization_model/                    Local HuggingFace BART model files
+|   |-- embedding_model/                        SentenceTransformers model files
+|
+|
+|-- tests/                                      <-- TEST SUITE
+|   |-- __init__.py
+|   |-- test_transcription.py                   [Python]  Tests for Whisper transcription
+|   |-- test_summary.py                         [Python]  Tests for summarization pipeline
+|   |-- test_rag.py                             [Python]  Tests for RAG / FAISS search
+|
+|
+|-- docs/                                       <-- DOCUMENTATION
+|   |-- api_documentation.md                    [Markdown] Full REST API docs
+|   |-- methodology.md                          [Markdown] System methodology notes
+|   |-- architecture.png                        [Image]    System architecture diagram
+|
+|
+|-- notebooks/                                  <-- JUPYTER NOTEBOOKS (Research & Testing)
+|   |-- experimentation.ipynb                   [Notebook] Model experimentation notebook
+|   |-- model_testing.ipynb                     [Notebook] Model evaluation notebook
+|
+|
+|-- logs/                                       <-- LOG FILES (auto-created)
+|   |-- app.log                                 Application runtime logs (Loguru)
+|
+|
+|-- venv/                                       <-- VIRTUAL ENVIRONMENT (auto-created, not in Git)
+|   |-- Scripts/                                Python executables (Windows)
+|   |-- Lib/                                    Installed packages
+|   |-- ...
+|
+|
+|-- .git/                                       <-- GIT REPOSITORY DATA (auto-managed)
+|
+|-- .vscode/                                    <-- VS Code workspace settings
+|
+|-- .pytest_cache/                              <-- pytest cache (auto-generated)
+|
+|-- __pycache__/                                <-- Python bytecode cache (auto-generated)
+
+
+============================================================
+  IMPORTANT FILES EXPLAINED
+============================================================
+
+  app.py          --> The FastAPI server. Defines the app, middleware,
+                      static files, and registers all routes.
+                      This is the "brain" of the server.
+
+  main.py         --> Launches the server using uvicorn.
+                      Always run THIS file to start the app:
+                          python main.py
+
+  start.bat       --> Windows batch script. Double-click to start
+                      everything automatically (setup + run).
+
+  requirements.txt--> Lists every Python library needed.
+                      Install with: pip install -r requirements.txt
+
+  .env            --> Your private config file. Contains API keys,
+                      model settings, ports. NEVER share this file.
+
+  .env.example    --> Safe template of .env. Copy this to .env
+                      and fill in your values.
+
+  whisper_transcriber.py
+                  --> Converts audio to text using Whisper.
+                      Uses OpenAI API if key is set, otherwise
+                      runs the model locally on your computer.
+
+  summarizer.py   --> The note generator. Takes transcript chunks
+                      and produces structured Markdown notes.
+                      Uses GPT if API key is set, else uses BART.
+
+  rag_pipeline.py --> Enables "chat with your video".
+                      Builds a FAISS index from transcript chunks,
+                      then retrieves context to answer questions.
+
+  quiz_generator.py --> Auto-generates multiple-choice quiz
+                        questions from the video transcript.
+
+  index.html      --> The main web page you see in the browser.
+
+  style.css       --> All the CSS styling for the dashboard.
+
+  script.js       --> Frontend JavaScript that calls the API
+                      and displays results in the browser.
+
+
+============================================================
+  FILE COUNT SUMMARY
+============================================================
+
+  Backend Python files    : 16
+  Frontend files          : 3  (HTML, CSS, JS)
+  Config & setup files    : 7  (.env, requirements, Dockerfile, etc.)
+  Test files              : 3
+  Documentation files     : 3
+  Notebook files          : 2
+  -----------------------------------------------
+  Total source files      : ~34 (excluding auto-generated files)
+
+
+============================================================
+  AUTHOR  : Rajiv Ramteke
+  VERSION : 1.0.0
+  LICENSE : MIT
+============================================================
