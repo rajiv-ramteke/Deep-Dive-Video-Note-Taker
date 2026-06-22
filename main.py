@@ -22,10 +22,13 @@ if __name__ == "__main__":
     logger.info(f"  ASR  : Whisper ({settings.WHISPER_MODEL})")
     logger.info("=" * 60)
 
+    import os
+    reload_mode = settings.DEBUG and not os.environ.get("SPACE_ID")
+    
     uvicorn.run(
         "app:app",
         host=settings.APP_HOST,
         port=settings.APP_PORT,
-        reload=settings.DEBUG,
+        reload=reload_mode,
         log_level="info",
     )

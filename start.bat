@@ -62,7 +62,7 @@ if not exist "models\whisper"       mkdir models\whisper
 if not exist "models\embedding_model" mkdir models\embedding_model
 
 echo.
-echo [START] Launching server at http://localhost:8000
+echo [START] Launching server at http://localhost:7860
 echo         Press Ctrl+C to stop.
 echo.
 

@@ -1,0 +1,807 @@
+{
+  "text": "Believe it or not, your body might actually benefit in some weird ways. Here are five surprising positives most people don't know. It helps your heart a little. Light to moderate beer drinkers have a slightly lower risk of heart attacks. That's because beer can improve blood flow and reduce clotting. Just don't overdo it. You'll probably sleep better. Beer has small amounts of magnesium, potassium, and even B vitamins. Together these help your body relax and fall asleep easier. Your bones might get stronger. Beer contains dietary silicon. A mineral that helps build and maintain healthy bones. Stronger bones, less risk of fractures as you age. Your brain gets a mini boost. Some studies suggest moderate beer drinking can lower your risk of dementia. It's the antioxidant.",
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 4.0,
+      "start_ts": "00:00:00",
+      "end_ts": "00:00:04",
+      "text": "Believe it or not, your body might actually benefit in some weird ways.",
+      "words": [
+        {
+          "word": "Believe",
+          "start": 0.0,
+          "end": 0.36
+        },
+        {
+          "word": "it",
+          "start": 0.36,
+          "end": 0.54
+        },
+        {
+          "word": "or",
+          "start": 0.54,
+          "end": 0.72
+        },
+        {
+          "word": "not,",
+          "start": 0.72,
+          "end": 1.0
+        },
+        {
+          "word": "your",
+          "start": 1.18,
+          "end": 1.38
+        },
+        {
+          "word": "body",
+          "start": 1.38,
+          "end": 1.64
+        },
+        {
+          "word": "might",
+          "start": 1.64,
+          "end": 1.98
+        },
+        {
+          "word": "actually",
+          "start": 1.98,
+          "end": 2.3
+        },
+        {
+          "word": "benefit",
+          "start": 2.3,
+          "end": 2.7
+        },
+        {
+          "word": "in",
+          "start": 2.7,
+          "end": 3.02
+        },
+        {
+          "word": "some",
+          "start": 3.02,
+          "end": 3.28
+        },
+        {
+          "word": "weird",
+          "start": 3.28,
+          "end": 3.48
+        },
+        {
+          "word": "ways.",
+          "start": 3.48,
+          "end": 4.0
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "start": 4.26,
+      "end": 7.76,
+      "start_ts": "00:00:04",
+      "end_ts": "00:00:07",
+      "text": "Here are five surprising positives most people don't know.",
+      "words": [
+        {
+          "word": "Here",
+          "start": 4.26,
+          "end": 4.46
+        },
+        {
+          "word": "are",
+          "start": 4.46,
+          "end": 4.68
+        },
+        {
+          "word": "five",
+          "start": 4.68,
+          "end": 5.06
+        },
+        {
+          "word": "surprising",
+          "start": 5.06,
+          "end": 5.6
+        },
+        {
+          "word": "positives",
+          "start": 5.6,
+          "end": 6.22
+        },
+        {
+          "word": "most",
+          "start": 6.22,
+          "end": 6.72
+        },
+        {
+          "word": "people",
+          "start": 6.72,
+          "end": 7.08
+        },
+        {
+          "word": "don't",
+          "start": 7.08,
+          "end": 7.44
+        },
+        {
+          "word": "know.",
+          "start": 7.44,
+          "end": 7.76
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "start": 8.0,
+      "end": 9.4,
+      "start_ts": "00:00:08",
+      "end_ts": "00:00:09",
+      "text": "It helps your heart a little.",
+      "words": [
+        {
+          "word": "It",
+          "start": 8.0,
+          "end": 8.2
+        },
+        {
+          "word": "helps",
+          "start": 8.2,
+          "end": 8.46
+        },
+        {
+          "word": "your",
+          "start": 8.46,
+          "end": 8.74
+        },
+        {
+          "word": "heart",
+          "start": 8.74,
+          "end": 9.0
+        },
+        {
+          "word": "a",
+          "start": 9.0,
+          "end": 9.18
+        },
+        {
+          "word": "little.",
+          "start": 9.18,
+          "end": 9.4
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "start": 9.7,
+      "end": 13.42,
+      "start_ts": "00:00:09",
+      "end_ts": "00:00:13",
+      "text": "Light to moderate beer drinkers have a slightly lower risk of heart attacks.",
+      "words": [
+        {
+          "word": "Light",
+          "start": 9.7,
+          "end": 9.86
+        },
+        {
+          "word": "to",
+          "start": 9.86,
+          "end": 10.06
+        },
+        {
+          "word": "moderate",
+          "start": 10.06,
+          "end": 10.42
+        },
+        {
+          "word": "beer",
+          "start": 10.42,
+          "end": 10.82
+        },
+        {
+          "word": "drinkers",
+          "start": 10.82,
+          "end": 11.26
+        },
+        {
+          "word": "have",
+          "start": 11.26,
+          "end": 11.46
+        },
+        {
+          "word": "a",
+          "start": 11.46,
+          "end": 11.7
+        },
+        {
+          "word": "slightly",
+          "start": 11.7,
+          "end": 11.86
+        },
+        {
+          "word": "lower",
+          "start": 11.86,
+          "end": 12.24
+        },
+        {
+          "word": "risk",
+          "start": 12.24,
+          "end": 12.54
+        },
+        {
+          "word": "of",
+          "start": 12.54,
+          "end": 12.78
+        },
+        {
+          "word": "heart",
+          "start": 12.78,
+          "end": 12.94
+        },
+        {
+          "word": "attacks.",
+          "start": 12.94,
+          "end": 13.42
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "start": 13.74,
+      "end": 16.8,
+      "start_ts": "00:00:13",
+      "end_ts": "00:00:16",
+      "text": "That's because beer can improve blood flow and reduce clotting.",
+      "words": [
+        {
+          "word": "That's",
+          "start": 13.74,
+          "end": 14.04
+        },
+        {
+          "word": "because",
+          "start": 14.04,
+          "end": 14.3
+        },
+        {
+          "word": "beer",
+          "start": 14.3,
+          "end": 14.54
+        },
+        {
+          "word": "can",
+          "start": 14.54,
+          "end": 14.78
+        },
+        {
+          "word": "improve",
+          "start": 14.78,
+          "end": 15.12
+        },
+        {
+          "word": "blood",
+          "start": 15.12,
+          "end": 15.44
+        },
+        {
+          "word": "flow",
+          "start": 15.44,
+          "end": 15.72
+        },
+        {
+          "word": "and",
+          "start": 15.72,
+          "end": 15.92
+        },
+        {
+          "word": "reduce",
+          "start": 15.92,
+          "end": 16.22
+        },
+        {
+          "word": "clotting.",
+          "start": 16.22,
+          "end": 16.8
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "start": 17.06,
+      "end": 18.6,
+      "start_ts": "00:00:17",
+      "end_ts": "00:00:18",
+      "text": "Just don't overdo it.",
+      "words": [
+        {
+          "word": "Just",
+          "start": 17.06,
+          "end": 17.26
+        },
+        {
+          "word": "don't",
+          "start": 17.26,
+          "end": 17.84
+        },
+        {
+          "word": "overdo",
+          "start": 17.84,
+          "end": 18.16
+        },
+        {
+          "word": "it.",
+          "start": 18.16,
+          "end": 18.6
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "start": 18.84,
+      "end": 20.06,
+      "start_ts": "00:00:18",
+      "end_ts": "00:00:20",
+      "text": "You'll probably sleep better.",
+      "words": [
+        {
+          "word": "You'll",
+          "start": 18.84,
+          "end": 19.02
+        },
+        {
+          "word": "probably",
+          "start": 19.02,
+          "end": 19.42
+        },
+        {
+          "word": "sleep",
+          "start": 19.42,
+          "end": 19.74
+        },
+        {
+          "word": "better.",
+          "start": 19.74,
+          "end": 20.06
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "start": 20.38,
+      "end": 24.24,
+      "start_ts": "00:00:20",
+      "end_ts": "00:00:24",
+      "text": "Beer has small amounts of magnesium, potassium, and even B vitamins.",
+      "words": [
+        {
+          "word": "Beer",
+          "start": 20.38,
+          "end": 20.56
+        },
+        {
+          "word": "has",
+          "start": 20.56,
+          "end": 20.82
+        },
+        {
+          "word": "small",
+          "start": 20.82,
+          "end": 21.14
+        },
+        {
+          "word": "amounts",
+          "start": 21.14,
+          "end": 21.48
+        },
+        {
+          "word": "of",
+          "start": 21.48,
+          "end": 21.72
+        },
+        {
+          "word": "magnesium,",
+          "start": 21.72,
+          "end": 22.24
+        },
+        {
+          "word": "potassium,",
+          "start": 22.5,
+          "end": 22.88
+        },
+        {
+          "word": "and",
+          "start": 23.1,
+          "end": 23.26
+        },
+        {
+          "word": "even",
+          "start": 23.26,
+          "end": 23.54
+        },
+        {
+          "word": "B",
+          "start": 23.54,
+          "end": 23.74
+        },
+        {
+          "word": "vitamins.",
+          "start": 23.74,
+          "end": 24.24
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "start": 24.84,
+      "end": 27.96,
+      "start_ts": "00:00:24",
+      "end_ts": "00:00:27",
+      "text": "Together these help your body relax and fall asleep easier.",
+      "words": [
+        {
+          "word": "Together",
+          "start": 24.84,
+          "end": 25.12
+        },
+        {
+          "word": "these",
+          "start": 25.12,
+          "end": 25.44
+        },
+        {
+          "word": "help",
+          "start": 25.44,
+          "end": 25.66
+        },
+        {
+          "word": "your",
+          "start": 25.66,
+          "end": 25.8
+        },
+        {
+          "word": "body",
+          "start": 25.8,
+          "end": 26.06
+        },
+        {
+          "word": "relax",
+          "start": 26.06,
+          "end": 26.54
+        },
+        {
+          "word": "and",
+          "start": 26.54,
+          "end": 26.86
+        },
+        {
+          "word": "fall",
+          "start": 26.86,
+          "end": 27.06
+        },
+        {
+          "word": "asleep",
+          "start": 27.06,
+          "end": 27.44
+        },
+        {
+          "word": "easier.",
+          "start": 27.44,
+          "end": 27.96
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "start": 27.96,
+      "end": 29.88,
+      "start_ts": "00:00:27",
+      "end_ts": "00:00:29",
+      "text": "Your bones might get stronger.",
+      "words": [
+        {
+          "word": "Your",
+          "start": 27.96,
+          "end": 28.36
+        },
+        {
+          "word": "bones",
+          "start": 28.36,
+          "end": 28.78
+        },
+        {
+          "word": "might",
+          "start": 28.78,
+          "end": 29.12
+        },
+        {
+          "word": "get",
+          "start": 29.12,
+          "end": 29.42
+        },
+        {
+          "word": "stronger.",
+          "start": 29.42,
+          "end": 29.88
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "start": 30.18,
+      "end": 32.16,
+      "start_ts": "00:00:30",
+      "end_ts": "00:00:32",
+      "text": "Beer contains dietary silicon.",
+      "words": [
+        {
+          "word": "Beer",
+          "start": 30.18,
+          "end": 30.42
+        },
+        {
+          "word": "contains",
+          "start": 30.42,
+          "end": 30.94
+        },
+        {
+          "word": "dietary",
+          "start": 30.94,
+          "end": 31.6
+        },
+        {
+          "word": "silicon.",
+          "start": 31.6,
+          "end": 32.16
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "start": 32.68,
+      "end": 35.82,
+      "start_ts": "00:00:32",
+      "end_ts": "00:00:35",
+      "text": "A mineral that helps build and maintain healthy bones.",
+      "words": [
+        {
+          "word": "A",
+          "start": 32.68,
+          "end": 32.8
+        },
+        {
+          "word": "mineral",
+          "start": 32.8,
+          "end": 33.12
+        },
+        {
+          "word": "that",
+          "start": 33.12,
+          "end": 33.38
+        },
+        {
+          "word": "helps",
+          "start": 33.38,
+          "end": 33.58
+        },
+        {
+          "word": "build",
+          "start": 33.58,
+          "end": 34.04
+        },
+        {
+          "word": "and",
+          "start": 34.04,
+          "end": 34.28
+        },
+        {
+          "word": "maintain",
+          "start": 34.28,
+          "end": 34.78
+        },
+        {
+          "word": "healthy",
+          "start": 34.78,
+          "end": 35.24
+        },
+        {
+          "word": "bones.",
+          "start": 35.24,
+          "end": 35.82
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "start": 36.38,
+      "end": 39.38,
+      "start_ts": "00:00:36",
+      "end_ts": "00:00:39",
+      "text": "Stronger bones, less risk of fractures as you age.",
+      "words": [
+        {
+          "word": "Stronger",
+          "start": 36.38,
+          "end": 36.8
+        },
+        {
+          "word": "bones,",
+          "start": 36.8,
+          "end": 37.2
+        },
+        {
+          "word": "less",
+          "start": 37.46,
+          "end": 37.62
+        },
+        {
+          "word": "risk",
+          "start": 37.62,
+          "end": 37.9
+        },
+        {
+          "word": "of",
+          "start": 37.9,
+          "end": 38.06
+        },
+        {
+          "word": "fractures",
+          "start": 38.06,
+          "end": 38.52
+        },
+        {
+          "word": "as",
+          "start": 38.52,
+          "end": 38.8
+        },
+        {
+          "word": "you",
+          "start": 38.8,
+          "end": 38.96
+        },
+        {
+          "word": "age.",
+          "start": 38.96,
+          "end": 39.38
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "start": 39.62,
+      "end": 41.04,
+      "start_ts": "00:00:39",
+      "end_ts": "00:00:41",
+      "text": "Your brain gets a mini boost.",
+      "words": [
+        {
+          "word": "Your",
+          "start": 39.62,
+          "end": 39.82
+        },
+        {
+          "word": "brain",
+          "start": 39.82,
+          "end": 40.08
+        },
+        {
+          "word": "gets",
+          "start": 40.08,
+          "end": 40.34
+        },
+        {
+          "word": "a",
+          "start": 40.34,
+          "end": 40.5
+        },
+        {
+          "word": "mini",
+          "start": 40.5,
+          "end": 40.68
+        },
+        {
+          "word": "boost.",
+          "start": 40.68,
+          "end": 41.04
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "start": 41.54,
+      "end": 45.42,
+      "start_ts": "00:00:41",
+      "end_ts": "00:00:45",
+      "text": "Some studies suggest moderate beer drinking can lower your risk of dementia.",
+      "words": [
+        {
+          "word": "Some",
+          "start": 41.54,
+          "end": 41.78
+        },
+        {
+          "word": "studies",
+          "start": 41.78,
+          "end": 42.08
+        },
+        {
+          "word": "suggest",
+          "start": 42.08,
+          "end": 42.66
+        },
+        {
+          "word": "moderate",
+          "start": 42.66,
+          "end": 43.08
+        },
+        {
+          "word": "beer",
+          "start": 43.08,
+          "end": 43.4
+        },
+        {
+          "word": "drinking",
+          "start": 43.4,
+          "end": 43.72
+        },
+        {
+          "word": "can",
+          "start": 43.72,
+          "end": 44.04
+        },
+        {
+          "word": "lower",
+          "start": 44.04,
+          "end": 44.3
+        },
+        {
+          "word": "your",
+          "start": 44.3,
+          "end": 44.64
+        },
+        {
+          "word": "risk",
+          "start": 44.64,
+          "end": 44.86
+        },
+        {
+          "word": "of",
+          "start": 44.86,
+          "end": 45.08
+        },
+        {
+          "word": "dementia.",
+          "start": 45.08,
+          "end": 45.42
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "start": 45.9,
+      "end": 47.16,
+      "start_ts": "00:00:45",
+      "end_ts": "00:00:47",
+      "text": "It's the antioxidant.",
+      "words": [
+        {
+          "word": "It's",
+          "start": 45.9,
+          "end": 46.22
+        },
+        {
+          "word": "the",
+          "start": 46.22,
+          "end": 46.4
+        },
+        {
+          "word": "antioxidant.",
+          "start": 46.4,
+          "end": 47.16
+        }
+      ]
+    }
+  ],
+  "language": "en",
+  "duration": 47.1829375
+}
